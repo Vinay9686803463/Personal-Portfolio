@@ -33,7 +33,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: "easeOut" }}
-            className="border border-[#26364D] bg-[#0F192B] p-6 sm:p-8 transition-all duration-200 hover:border-[#60A5FA]/60"
+            className="border-t border-[#26364D] pt-6"
           >
             <div className="flex items-start gap-4">
               <div className="p-2 border border-[#26364D]">
@@ -96,7 +96,7 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.35, delay: shouldReduceMotion ? 0 : index * 0.05, ease: "easeOut" }}
-                className="border border-[#26364D] bg-[#0F192B] p-6 sm:p-7 space-y-3 transition-all duration-200 hover:-translate-y-[2px] hover:border-[#60A5FA]/70"
+                className="border-t border-[#26364D] pt-6 first:pt-0 space-y-2"
               >
                 <span className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5">
                   {project.category || 'Software Project'}

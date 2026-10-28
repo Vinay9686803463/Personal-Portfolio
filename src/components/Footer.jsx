@@ -50,21 +50,20 @@ export default function Footer() {
             </div>
 
             {/* Contact Details */}
-            <div className="lg:col-span-4 border border-[#26364D] bg-[#0B1220] p-6 space-y-4">
+            <div className="lg:col-span-4 space-y-4">
               <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
                 Direct Channels
               </div>
 
-              <div className="space-y-3 text-xs text-[#A7B5C9]">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#60A5FA] shrink-0 mt-0.5" />
+              <ul className="space-y-2 text-sm text-[#A7B5C9]">
+                <li className="flex items-center gap-2.5">
+                  <MapPin className="w-4 h-4 text-[#60A5FA]" />
                   <span className="leading-snug">
                     Bengaluru, Karnataka
                   </span>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Github className="w-4 h-4 text-[#60A5FA] shrink-0" />
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Github className="w-4 h-4 text-[#60A5FA]" />
                   <a
                     href={personalInfo.socials.github}
                     target="_blank"
@@ -73,20 +72,19 @@ export default function Footer() {
                   >
                     github.com/Vinay9686803463
                   </a>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Linkedin className="w-4 h-4 text-[#60A5FA] shrink-0" />
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Linkedin className="w-4 h-4 text-[#60A5FA]" />
                   <a
                     href={personalInfo.socials.linkedin}
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-[#F1F5F9] transition-colors"
                   >
-                    LinkedIn Profile
+                    linkedin.com/in/vinay-sollapure-94474b2a4
                   </a>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
 
           </div>

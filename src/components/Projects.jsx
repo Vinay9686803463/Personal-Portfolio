@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import {
-    Github,
     ArrowUpRight,
     Code2
 } from "lucide-react";
@@ -84,103 +83,68 @@ export default function Projects() {
                                 delay: shouldReduceMotion ? 0 : index * 0.05,
                                 ease: "easeOut"
                             }}
-                            className="border border-[#26364D] bg-[#0F192B] p-6 sm:p-7 flex flex-col justify-between gap-6 transition-all duration-200 hover:-translate-y-[2px] hover:border-[#60A5FA]/70"
+                            className="border border-[#26364D] bg-[#0F192B] p-6 sm:p-7 transition-all duration-200 hover:border-[#60A5FA]/70"
                         >
                             <div className="space-y-5">
 
-                                {/* Project Category */}
-                                <div className="flex flex-wrap items-center justify-between gap-3">
-                                    <span className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5">
-                                        {project.category || "Web Development"}
-                                    </span>
-
-                                    <Code2 className="w-5 h-5 text-[#60A5FA]" />
-                                </div>
-
-                                {/* Project Information */}
-                                <div className="space-y-2">
-                                    <h3 className="text-xl font-semibold text-[#F1F5F9] tracking-tight">
-                                        {project.title}
-                                    </h3>
-
-                                    <p className="text-sm text-[#A7B5C9] leading-relaxed">
-                                        {project.description}
-                                    </p>
-                                </div>
-
-                                {/* Project Highlights */}
-                                {project.highlights?.length > 0 && (
-                                    <div className="pt-3 border-t border-[#26364D] space-y-2">
-                                        <h4 className="text-xs font-mono uppercase tracking-wider text-[#A7B5C9]">
-                                            Key Features
-                                        </h4>
-
-                                        <ul className="space-y-1.5">
-                                            {project.highlights.map(
-                                                (highlight, highlightIndex) => (
-                                                    <li
-                                                        key={highlightIndex}
-                                                        className="flex items-start gap-2 text-xs sm:text-sm text-[#A7B5C9]"
-                                                    >
-                                                        <span className="w-1.5 h-1.5 bg-[#60A5FA] shrink-0 mt-1.5" />
-
-                                                        <span>
-                                                            {highlight}
-                                                        </span>
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Technologies and Repository */}
-                            <div className="pt-3 border-t border-[#26364D] space-y-4">
-
-                                <div>
-                                    <span className="text-[11px] font-mono uppercase tracking-wider text-[#A7B5C9] block mb-2">
-                                        Technologies
-                                    </span>
-
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.techStack.map((tech) => (
-                                            <span
-                                                key={tech}
-                                                className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5"
-                                            >
-                                                {tech}
+                                {/* Project Header */}
+                                <div className="flex flex-wrap items-start justify-between gap-4">
+                                    <div className="space-y-1">
+                                        <div className="flex items-center gap-2">
+                                            <Code2 className="w-4 h-4 text-[#60A5FA]" />
+                                            <span className="text-[11px] font-mono text-[#A7B5C9]">
+                                                {project.category || "Web Development"}
                                             </span>
-                                        ))}
+                                        </div>
+                                        <h3 className="text-xl font-semibold text-[#F1F5F9] tracking-tight">
+                                            {project.title}
+                                        </h3>
                                     </div>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2">
                                     <a
                                         href={project.githubUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 min-w-[120px] py-2 text-xs text-[#F1F5F9] border border-[#26364D] hover:border-[#60A5FA]/70 hover:text-[#A5D8FF] active:translate-y-[1px] flex items-center justify-center gap-2 transition-all duration-200"
+                                        className="inline-flex items-center gap-1.5 text-xs text-[#A5D8FF] hover:text-[#F1F5F9] transition-all duration-200 group"
                                     >
-                                        <Github className="w-4 h-4 text-[#60A5FA]" />
-
-                                        <span>View Source Code</span>
-
-                                        <ArrowUpRight className="w-3.5 h-3.5" />
+                                        <span>Source</span>
+                                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
                                     </a>
+                                </div>
 
-                                    {project.demoUrl && (
-                                        <a
-                                            href={project.demoUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 min-w-[100px] py-2 text-xs text-[#F1F5F9] border border-[#26364D] hover:border-[#60A5FA]/70 hover:text-[#A5D8FF] active:translate-y-[1px] flex items-center justify-center gap-2 transition-all duration-200"
+                                {/* Project Information */}
+                                <p className="text-sm text-[#A7B5C9] leading-relaxed max-w-2xl">
+                                    {project.description}
+                                </p>
+
+                                {/* Project Highlights */}
+                                {project.highlights?.length > 0 && (
+                                    <ul className="space-y-1.5">
+                                        {project.highlights.map(
+                                            (highlight, highlightIndex) => (
+                                                <li
+                                                    key={highlightIndex}
+                                                    className="flex items-start gap-2 text-xs sm:text-sm text-[#A7B5C9]"
+                                                >
+                                                    <span className="w-1 h-1 bg-[#60A5FA] shrink-0 mt-2" />
+                                                    <span>
+                                                        {highlight}
+                                                    </span>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                )}
+
+                                {/* Technologies */}
+                                <div className="flex flex-wrap gap-2 pt-2">
+                                    {project.techStack.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5"
                                         >
-                                            <span>Live Demo</span>
-
-                                            <ArrowUpRight className="w-3.5 h-3.5" />
-                                        </a>
-                                    )}
+                                            {tech}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
                         </motion.article>

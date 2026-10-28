@@ -236,7 +236,7 @@ export default function Hero() {
                         className="lg:col-span-5"
                     >
 
-                        <div className="border border-[#26364D] p-6 sm:p-7 space-y-6 bg-[#0F192B] transition-all duration-200 hover:border-[#60A5FA]/60">
+                        <div className="border border-[#26364D] p-6 sm:p-7 space-y-6 bg-[#0F192B]">
 
                             {/* Overview Header */}
                             <div className="flex items-center justify-between pb-3 border-b border-[#26364D]">
@@ -249,121 +249,84 @@ export default function Hero() {
                                     </span>
                                 </div>
 
-                                <span className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5">
+                                <span className="text-[11px] font-mono text-[#A7B5C9]">
                                     2026
                                 </span>
 
                             </div>
 
                             {/* Development Areas */}
-                            <div className="space-y-3">
-
+                            <div className="grid grid-cols-1 divide-y divide-[#26364D]">
                                 {/* Frontend */}
-                                <div className="p-3 border border-[#26364D] space-y-1">
-
-                                    <div className="flex items-center justify-between gap-2 text-xs">
-
+                                <div className="py-4 first:pt-0 last:pb-0 space-y-1">
+                                    <div className="flex items-center justify-between gap-2 text-sm">
                                         <span className="text-[#F1F5F9] flex items-center gap-2">
                                             <Layers className="w-4 h-4 text-[#60A5FA]" />
                                             Frontend Development
                                         </span>
-
-                                        <span className="text-[10px] font-mono text-[#A7B5C9]">
+                                        <span className="text-[11px] font-mono text-[#A7B5C9]">
                                             HTML / CSS / JS
                                         </span>
-
                                     </div>
-
-                                    <p className="text-xs text-[#A7B5C9] leading-relaxed">
-                                        Building responsive web interfaces
-                                        with semantic HTML, modern CSS,
-                                        and interactive JavaScript.
+                                    <p className="text-xs text-[#A7B5C9] leading-relaxed pl-6">
+                                        Building responsive web interfaces with semantic HTML, modern CSS, and interactive JavaScript.
                                     </p>
-
                                 </div>
 
                                 {/* Backend */}
-                                <div className="p-3 border border-[#26364D] space-y-1">
-
-                                    <div className="flex items-center justify-between gap-2 text-xs">
-
+                                <div className="py-4 first:pt-0 last:pb-0 space-y-1">
+                                    <div className="flex items-center justify-between gap-2 text-sm">
                                         <span className="text-[#F1F5F9] flex items-center gap-2">
                                             <Cpu className="w-4 h-4 text-[#60A5FA]" />
                                             Backend Development
                                         </span>
-
-                                        <span className="text-[10px] font-mono text-[#A7B5C9]">
+                                        <span className="text-[11px] font-mono text-[#A7B5C9]">
                                             Python / Flask
                                         </span>
-
                                     </div>
-
-                                    <p className="text-xs text-[#A7B5C9] leading-relaxed">
-                                        Developing web applications,
-                                        server-side functionality,
-                                        and database-connected features
-                                        using Python and Flask.
+                                    <p className="text-xs text-[#A7B5C9] leading-relaxed pl-6">
+                                        Developing web applications, server-side functionality, and database-connected features using Python and Flask.
                                     </p>
-
                                 </div>
 
                                 {/* Database */}
-                                <div className="p-3 border border-[#26364D] space-y-1">
-
-                                    <div className="flex items-center justify-between gap-2 text-xs">
-
+                                <div className="py-4 first:pt-0 last:pb-0 space-y-1">
+                                    <div className="flex items-center justify-between gap-2 text-sm">
                                         <span className="text-[#F1F5F9] flex items-center gap-2">
                                             <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
                                             Database & Tools
                                         </span>
-
-                                        <span className="text-[10px] font-mono text-[#A7B5C9]">
+                                        <span className="text-[11px] font-mono text-[#A7B5C9]">
                                             SQL / Git
                                         </span>
-
                                     </div>
-
-                                    <p className="text-xs text-[#A7B5C9] leading-relaxed">
-                                        Working with relational databases,
-                                        version control, GitHub, and
-                                        application deployment workflows.
+                                    <p className="text-xs text-[#A7B5C9] leading-relaxed pl-6">
+                                        Working with relational databases, version control, GitHub, and application deployment workflows.
                                     </p>
-
                                 </div>
-
                             </div>
 
                             {/* Portfolio Information */}
-                            <div className="grid grid-cols-2 gap-3 pt-1">
-
-                                <div className="p-3 border border-[#26364D]">
-
+                            <div className="grid grid-cols-2 divide-x divide-[#26364D] border-t border-[#26364D] pt-4">
+                                <div className="pr-4">
                                     <div className="text-2xl font-bold font-editorial text-[#F1F5F9]">
                                         {projects.length}
                                     </div>
-
                                     <div className="text-[11px] font-mono text-[#A7B5C9]">
                                         Featured Projects
                                     </div>
-
                                 </div>
-
-                                <div className="p-3 border border-[#26364D]">
-
+                                <div className="pl-4">
                                     <div className="flex items-center gap-2 text-[#A5D8FF]">
                                         <GraduationCap className="w-5 h-5" />
-
                                         <span className="text-lg font-bold font-editorial">
                                             B.Tech
                                         </span>
                                     </div>
-
                                     <div className="text-[11px] font-mono text-[#A7B5C9]">
                                         CSE Student
                                     </div>
-
                                 </div>
-
                             </div>
 
                         </div>

@@ -82,37 +82,31 @@ export default function Skills() {
                                 delay: shouldReduceMotion ? 0 : index * 0.05,
                                 ease: "easeOut"
                             }}
-                            className="border border-[#26364D] bg-[#0F192B] p-6 sm:p-7 space-y-5 transition-all duration-200 hover:border-[#60A5FA]/60"
+                            className="border-t border-[#26364D] pt-6 first:pt-0"
                         >
-                            {/* Category Header */}
-                            <div className="flex items-start justify-between pb-3 border-b border-[#26364D]">
+                            <div className="flex items-start justify-between gap-4 mb-4">
                                 <div>
                                     <h3 className="text-lg font-semibold text-[#F1F5F9] tracking-tight">
                                         {category.title}
                                     </h3>
-
                                     <p className="text-xs text-[#A7B5C9] mt-1">
                                         {category.description}
                                     </p>
                                 </div>
-
-                                <span className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5 whitespace-nowrap">
-                                    {category.skills.length} Skills
+                                <span className="text-[11px] font-mono text-[#A7B5C9]">
+                                    {category.skills.length}
                                 </span>
                             </div>
 
                             {/* Individual Skills */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-2 gap-x-6">
                                 {category.skills.map((skill) => (
                                     <div
                                         key={skill.name}
-                                        className="px-3 py-2 border border-[#26364D] flex items-center gap-2 text-xs transition-colors duration-200 hover:border-[#60A5FA]/70"
+                                        className="flex items-center gap-2 text-sm text-[#F1F5F9]"
                                     >
-                                        <span className="w-1.5 h-1.5 bg-[#60A5FA] shrink-0" />
-
-                                        <span className="text-[#F1F5F9]">
-                                            {skill.name}
-                                        </span>
+                                        <span className="w-1 h-1 bg-[#60A5FA]" />
+                                        <span>{skill.name}</span>
                                     </div>
                                 ))}
                             </div>
@@ -121,7 +115,7 @@ export default function Skills() {
                 </div>
 
                 {/* Learning Statement */}
-                <div className="mt-8 p-5 sm:p-6 border border-[#26364D] bg-[#0F192B]">
+                <div className="mt-10 pt-6 border-t border-[#26364D]">
                     <p className="text-sm text-[#A7B5C9] leading-relaxed">
                         <span className="text-[#A5D8FF]">
                             Continuous learning:
