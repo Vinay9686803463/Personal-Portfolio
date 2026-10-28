@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, Mail, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 
@@ -13,6 +13,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+    useReducedMotion();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("about");
@@ -56,13 +57,13 @@ export default function Navbar() {
         <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all duration-300">
             <div
                 className={`
-                    max-w-6xl mx-auto rounded-xl
-                    bg-[#21191D]/95 border border-[#49323C]
-                    backdrop-blur-md transition-all duration-300
+                    max-w-6xl mx-auto
+                    bg-[#0F192B]/95 border border-[#26364D]
+                    transition-all duration-300
                     ${
                         scrolled
-                            ? "py-3 px-5 shadow-xl shadow-black/40"
-                            : "py-3.5 px-6"
+                            ? "py-2.5 px-5"
+                            : "py-3 px-6"
                     }
                 `}
             >
@@ -72,17 +73,17 @@ export default function Navbar() {
                         onClick={closeMobileMenu}
                         className="flex items-center gap-3 group"
                     >
-                        <span className="w-8 h-8 rounded-lg bg-[#291D23] border border-[#49323C] flex items-center justify-center font-editorial italic text-lg text-[#F0DCE2] group-hover:border-[#84445C] transition-colors">
+                        <span className="w-8 h-8 rounded-lg bg-[#111D32] border border-[#26364D] flex items-center justify-center font-editorial italic text-lg text-[#F1F5F9] group-hover:border-[#60A5FA] transition-colors">
                             V
                         </span>
 
                         <div className="flex flex-col text-left">
-                            <span className="font-semibold text-sm tracking-tight text-[#F0DCE2] group-hover:text-[#D6A19A] transition-colors">
+                            <span className="font-semibold text-sm tracking-tight text-[#F1F5F9] group-hover:text-[#A5D8FF] transition-colors">
                                 {personalInfo.name}
-                                <span className="text-[#BB786D]">.</span>
+                                <span className="text-[#60A5FA]">.</span>
                             </span>
 
-                            <span className="text-[11px] font-mono text-[#A18D96] uppercase tracking-wider">
+                            <span className="text-[11px] font-mono text-[#A7B5C9] uppercase tracking-wider">
                                 B.Tech CSE &bull; Web Developer
                             </span>
                         </div>
@@ -102,27 +103,19 @@ export default function Navbar() {
                                     href={item.href}
                                     aria-current={isActive ? "location" : undefined}
                                     className={`
-                                        relative px-3.5 py-1.5 rounded-lg
-                                        text-xs font-medium transition-all duration-200
+                                        relative px-3 py-1.5
+                                        text-xs font-medium transition-colors duration-200
                                         ${
                                             isActive
-                                                ? "text-[#F0DCE2] bg-[#33232B] font-semibold"
-                                                : "text-[#C2AEB5] hover:text-[#F0DCE2] hover:bg-[#291D23]"
+                                                ? "text-[#F1F5F9]"
+                                                : "text-[#A7B5C9] hover:text-[#F1F5F9]"
                                         }
                                     `}
                                 >
                                     {item.label}
 
                                     {isActive && (
-                                        <motion.div
-                                            layoutId="activeNavTab"
-                                            className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#BB786D] rounded-full"
-                                            transition={{
-                                                type: "spring",
-                                                stiffness: 380,
-                                                damping: 30
-                                            }}
-                                        />
+                                        <span className="absolute -bottom-0.5 left-3 right-3 h-[1px] bg-[#60A5FA]" />
                                     )}
                                 </a>
                             );
@@ -133,14 +126,14 @@ export default function Navbar() {
                         <a
                             href="#chat-widget"
                             onClick={openChatWidget}
-                            className="px-4 py-1.5 rounded-lg text-xs font-medium border border-[#49323C] bg-[#291D23] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] transition-colors"
+                            className="px-3.5 py-1.5 text-xs font-medium border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] transition-colors"
                         >
                             <span>Ask Assistant</span>
                         </a>
 
                         <a
                             href="#contact"
-                            className="px-4 py-1.5 rounded-lg text-xs font-semibold bg-[#84445C] hover:bg-[#96546D] text-[#F0DCE2] border border-[#BB786D]/40 shadow-md shadow-[#522838]/30 transition-all duration-200 flex items-center gap-1.5"
+                            className="px-3.5 py-1.5 text-xs font-medium bg-[#60A5FA] text-[#0B1220] flex items-center gap-1.5 transition-all duration-200 hover:bg-[#A5D8FF] active:translate-y-[1px]"
                         >
                             <span>Connect</span>
                             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -150,7 +143,7 @@ export default function Navbar() {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen((previous) => !previous)}
-                        className="md:hidden p-2 rounded-lg bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] focus:outline-none"
+                        className="md:hidden p-2 rounded-lg bg-[#111D32] border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] focus:outline-none"
                         aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                         aria-expanded={mobileMenuOpen}
                         aria-controls="mobile-navigation"
@@ -172,7 +165,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -15 }}
                         transition={{ duration: 0.2 }}
-                        className="md:hidden max-w-6xl mx-auto mt-2 rounded-xl bg-[#21191D] p-5 border border-[#49323C] shadow-2xl space-y-4"
+                        className="md:hidden max-w-6xl mx-auto mt-2 rounded-xl bg-[#0F192B] p-5 border border-[#26364D] space-y-4"
                     >
                         <nav
                             className="flex flex-col space-y-1"
@@ -194,7 +187,7 @@ export default function Navbar() {
                             <button
                                 type="button"
                                 onClick={openChatWidget}
-                                className="w-full text-center py-2.5 rounded-lg bg-[#291D23] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] border border-[#49323C] text-xs font-medium transition-colors"
+                                className="w-full text-center py-2 text-xs font-medium border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200"
                             >
                                 Ask Assistant
                             </button>
@@ -204,7 +197,7 @@ export default function Navbar() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={closeMobileMenu}
-                                className="w-full text-center py-2.5 rounded-lg bg-[#291D23] text-[#C2AEB5] hover:text-[#F0DCE2] border border-[#49323C] text-xs font-medium"
+                                className="w-full text-center py-2 text-xs font-medium border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200"
                             >
                                 My GitHub Profile
                             </a>
@@ -212,7 +205,7 @@ export default function Navbar() {
                             <a
                                 href={`mailto:${personalInfo.email}`}
                                 onClick={closeMobileMenu}
-                                className="w-full text-center py-2.5 rounded-lg bg-[#84445C] hover:bg-[#96546D] text-[#F0DCE2] font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
+                                className="w-full text-center py-2 text-xs font-medium bg-[#60A5FA] text-[#0B1220] hover:bg-[#A5D8FF] flex items-center justify-center gap-2 transition-all duration-200 active:translate-y-[1px]"
                             >
                                 <Mail className="w-3.5 h-3.5" />
                                 <span>Email Vinay</span>

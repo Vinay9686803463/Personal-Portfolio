@@ -66,7 +66,7 @@ navLinks.forEach((link) => {
 
 const sections = document.querySelectorAll("main section[id]");
 
-if ("IntersectionObserver" in window) {
+if (typeof globalThis !== "undefined" && "IntersectionObserver" in globalThis) {
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {

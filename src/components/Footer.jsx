@@ -16,75 +16,72 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-[#21191D] border-t border-[#49323C] pt-24 pb-12 relative overflow-hidden"
+      className="bg-[#0B1220] border-t border-[#26364D] pt-24 pb-12 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Contact Banner */}
-        <div className="rounded-2xl bg-[#291D23] border border-[#49323C] p-8 sm:p-12 mb-20 space-y-6">
+        <div className="border border-[#26364D] bg-[#0F192B] p-8 sm:p-12 mb-20 space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-[#BB786D] uppercase tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-[#84445C]" />
+              <div className="inline-flex items-center gap-2 text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 bg-[#60A5FA]" />
                 <span>05 &bull; Contact &amp; Collaboration</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#F0DCE2] tracking-tight">
-                Let's build something{' '}
-                <span className="font-editorial italic font-normal text-[#D6A19A]">
-                  meaningful
-                </span>.
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#F1F5F9] tracking-tight">
+                Let's build something meaningful.
               </h3>
 
-              <p className="text-sm sm:text-base text-[#C2AEB5] max-w-xl leading-relaxed">
+              <p className="text-sm sm:text-base text-[#A7B5C9] max-w-xl leading-relaxed">
                 I'm a Computer Science student interested in web development,
                 backend systems, and building practical software projects.
                 Feel free to contact me to discuss projects or collaboration.
               </p>
 
-              <div className="flex flex-wrap gap-3.5 pt-2">
-                <a href={`mailto:${personalInfo.email}`} className="btn-primary">
-                  <Mail className="w-4 h-4 text-[#F0DCE2]" />
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a href={`mailto:${personalInfo.email}`} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#60A5FA] text-[#0B1220] hover:bg-[#A5D8FF] active:translate-y-[1px] transition-all duration-200">
+                  <Mail className="w-4 h-4" />
                   <span>{personalInfo.email}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#F0DCE2]" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
 
             {/* Contact Details */}
-            <div className="lg:col-span-4 rounded-xl bg-[#21191D] border border-[#49323C] p-6 space-y-4">
-              <div className="text-xs font-mono text-[#BB786D] uppercase tracking-wider font-semibold">
+            <div className="lg:col-span-4 border border-[#26364D] bg-[#0B1220] p-6 space-y-4">
+              <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
                 Direct Channels
               </div>
 
-              <div className="space-y-3 text-xs text-[#C2AEB5]">
+              <div className="space-y-3 text-xs text-[#A7B5C9]">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#BB786D] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#60A5FA] shrink-0 mt-0.5" />
                   <span className="leading-snug">
                     Bengaluru, Karnataka
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Github className="w-4 h-4 text-[#BB786D] shrink-0" />
+                  <Github className="w-4 h-4 text-[#60A5FA] shrink-0" />
                   <a
                     href={personalInfo.socials.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#F0DCE2] underline decoration-[#49323C] hover:decoration-[#BB786D] transition-colors"
+                    className="hover:text-[#F1F5F9] transition-colors"
                   >
                     github.com/Vinay9686803463
                   </a>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Linkedin className="w-4 h-4 text-[#BB786D] shrink-0" />
+                  <Linkedin className="w-4 h-4 text-[#60A5FA] shrink-0" />
                   <a
                     href={personalInfo.socials.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#F0DCE2] underline decoration-[#49323C] hover:decoration-[#BB786D] transition-colors"
+                    className="hover:text-[#F1F5F9] transition-colors"
                   >
                     LinkedIn Profile
                   </a>
@@ -96,7 +93,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-[#49323C] text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-[#26364D] text-xs">
 
           {/* Brand */}
           <div className="md:col-span-2 space-y-3">
@@ -150,7 +147,7 @@ export default function Footer() {
           {/* Profiles and Back to Top */}
           <div className="space-y-4 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-mono text-[#F0DCE2] uppercase tracking-wider block font-semibold mb-2">
+              <span className="text-xs font-mono text-[#F1F5F9] uppercase tracking-wider block mb-2">
                 Profiles
               </span>
 
@@ -159,7 +156,7 @@ export default function Footer() {
                   href={personalInfo.socials.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 rounded-lg bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] transition-colors"
+                  className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
                   title="GitHub"
                   aria-label="GitHub profile"
                 >
@@ -170,7 +167,7 @@ export default function Footer() {
                   href={personalInfo.socials.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2 rounded-lg bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] transition-colors"
+                  className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
                   title="LinkedIn"
                   aria-label="LinkedIn profile"
                 >
@@ -179,7 +176,7 @@ export default function Footer() {
 
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="p-2 rounded-lg bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] transition-colors"
+                  className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
                   title="Email"
                   aria-label="Send email"
                 >
@@ -191,9 +188,9 @@ export default function Footer() {
             <button
             type="button"
               onClick={scrollToTop}
-              className="px-3 py-1.5 rounded-lg bg-[#291D23] hover:bg-[#33232B] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] text-xs font-mono flex items-center gap-1.5 self-start transition-colors"
+              className="px-3 py-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] text-xs font-mono flex items-center gap-1.5 self-start transition-all duration-200"
             >
-              <ArrowUp className="w-3.5 h-3.5 text-[#BB786D]" />
+              <ArrowUp className="w-3.5 h-3.5 text-[#60A5FA]" />
               <span>Back to top</span>
             </button>
           </div>
@@ -201,14 +198,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Metadata */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#A18D96] gap-4 font-mono">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#A7B5C9] gap-4 font-mono">
           <p>
             &copy; {new Date().getFullYear()} Vinay Sollapure
             &bull; All Rights Reserved.
-          </p>
-
-          <p className="text-[11px] text-[#A18D96]">
-            Plum, Dusty Rose &amp; Clay Editorial Design
           </p>
         </div>
 

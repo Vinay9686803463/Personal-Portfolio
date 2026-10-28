@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import {
     Github,
@@ -31,6 +31,8 @@ const coreSkills = [
 ];
 
 export default function Hero() {
+    const shouldReduceMotion = useReducedMotion();
+
     const openChatWidget = (event) => {
         event.preventDefault();
 
@@ -46,22 +48,22 @@ export default function Hero() {
     return (
         <section
             id="about"
-            className="relative min-h-screen pt-32 pb-24 flex items-center justify-center bg-[#191316] overflow-hidden"
+            className="relative min-h-screen pt-32 pb-24 flex items-center justify-center bg-[#0B1220] overflow-hidden"
         >
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
 
                     {/* Left Column */}
                     <motion.div
-                        initial={{ opacity: 0, y: 24 }}
+                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.55 }}
+                        transition={{ duration: shouldReduceMotion ? 0 : 0.5, ease: "easeOut" }}
                         className="lg:col-span-7 space-y-7 text-left"
                     >
 
                         {/* Academic Status */}
-                        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#21191D] border border-[#49323C] text-[#C2AEB5] text-xs font-mono">
-                            <span className="w-2 h-2 rounded-full bg-[#BB786D]" />
+                        <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#26364D] text-[#A7B5C9] text-xs font-mono">
+                            <span className="w-1.5 h-1.5 bg-[#60A5FA]" />
 
                             <span>
                                 B.Tech Computer Science Engineering Student
@@ -73,40 +75,36 @@ export default function Hero() {
 
                             {/* Profile Initials */}
                             <div className="relative shrink-0">
-                                <div className="p-1 rounded-2xl bg-[#291D23] border border-[#49323C] shadow-lg shadow-black/40">
-                                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-[#191316] flex items-center justify-center">
-                                        <span className="text-3xl sm:text-4xl font-editorial font-semibold text-[#D6A19A]">
+                                <div className="border border-[#26364D] p-1">
+                                    <div className="w-24 h-24 sm:w-28 sm:h-28 bg-[#0F192B] flex items-center justify-center">
+                                        <span className="text-3xl sm:text-4xl font-editorial font-semibold text-[#A5D8FF]">
                                             VS
                                         </span>
                                     </div>
                                 </div>
-
-                                <span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#84445C] border-2 border-[#191316] flex items-center justify-center text-[10px] text-[#F0DCE2]">
-                                    ✦
-                                </span>
                             </div>
 
                             {/* Name and Role */}
                             <div className="space-y-1.5">
-                                <div className="text-xs font-mono text-[#BB786D] uppercase tracking-wider">
+                                <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
                                     B.Tech CSE Student &bull; Web Developer
                                 </div>
 
-                                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F0DCE2] tracking-tight leading-[1.12]">
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F1F5F9] tracking-tight leading-[1.12]">
                                     Vinay{" "}
-                                    <span className="font-editorial italic font-normal text-[#D6A19A]">
+                                    <span className="font-editorial italic font-normal text-[#A5D8FF]">
                                         Sollapure
                                     </span>
                                 </h1>
 
-                                <div className="flex flex-wrap items-center gap-2 text-xs text-[#A18D96] font-mono">
-                                    <MapPin className="w-3.5 h-3.5 text-[#BB786D]" />
+                                <div className="flex flex-wrap items-center gap-2 text-xs text-[#A7B5C9] font-mono">
+                                    <MapPin className="w-3.5 h-3.5 text-[#60A5FA]" />
 
                                     <span>
                                         {personalInfo.location}
                                     </span>
 
-                                    <span className="text-[#49323C]">
+                                    <span className="text-[#26364D]">
                                         &bull;
                                     </span>
 
@@ -118,7 +116,7 @@ export default function Hero() {
                         </div>
 
                         {/* About Me */}
-                        <p className="text-[#C2AEB5] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                        <p className="text-[#A7B5C9] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
                             I'm a B.Tech Computer Science and Engineering
                             student at Aditya College of Engineering and
                             Technology, Bengaluru. I enjoy building
@@ -130,22 +128,22 @@ export default function Hero() {
                         </p>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                        <div className="flex flex-wrap items-center gap-3 pt-2">
 
                             <a
                                 href="#projects"
-                                className="btn-primary"
+                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#60A5FA] text-[#0B1220] hover:bg-[#A5D8FF] active:translate-y-[1px] transition-all duration-200"
                             >
                                 <span>
                                     View My Projects
                                 </span>
 
-                                <ArrowRight className="w-4 h-4 text-[#F0DCE2]" />
+                                <ArrowRight className="w-4 h-4" />
                             </a>
 
                             <a
                                 href="#contact"
-                                className="btn-secondary"
+                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium border border-[#26364D] text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200"
                             >
                                 <span>
                                     Get In Touch
@@ -155,10 +153,10 @@ export default function Hero() {
                             <a
                                 href="#chat-widget"
                                 onClick={openChatWidget}
-                                className="px-3.5 py-3 rounded-xl bg-[#21191D] hover:bg-[#291D23] text-[#C2AEB5] hover:text-[#F0DCE2] border border-[#49323C] hover:border-[#84445C] transition-all duration-200 text-xs font-medium flex items-center gap-2"
+                                className="px-3 py-2 text-xs font-medium border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200 flex items-center gap-2"
                                 title="Open Portfolio Assistant"
                             >
-                                <Bot className="w-4 h-4 text-[#BB786D]" />
+                                <Bot className="w-4 h-4 text-[#60A5FA]" />
 
                                 <span className="hidden sm:inline">
                                     Ask Assistant
@@ -167,16 +165,16 @@ export default function Hero() {
                         </div>
 
                         {/* Core Skills */}
-                        <div className="pt-3 border-t border-[#49323C]/70">
-                            <span className="text-[11px] font-mono uppercase tracking-wider text-[#A18D96] block mb-2">
+                        <div className="pt-4 border-t border-[#26364D]">
+                            <span className="text-[11px] font-mono uppercase tracking-wider text-[#A7B5C9] block mb-2">
                                 Core Competencies
                             </span>
 
-                            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#C2AEB5]">
+                            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#A7B5C9]">
                                 {coreSkills.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-2.5 py-1 rounded-md bg-[#21191D] border border-[#49323C] text-[#C2AEB5]"
+                                        className="px-2 py-0.5 border border-[#26364D]"
                                     >
                                         {skill}
                                     </span>
@@ -185,7 +183,7 @@ export default function Hero() {
                         </div>
 
                         {/* Social Links */}
-                        <div className="flex items-center gap-3 pt-1 text-xs text-[#A18D96]">
+                        <div className="flex items-center gap-3 pt-1 text-xs text-[#A7B5C9]">
 
                             <span className="font-mono">
                                 Connect:
@@ -195,7 +193,7 @@ export default function Hero() {
                                 href={personalInfo.socials.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-[#21191D] hover:bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] transition-colors"
+                                className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
                                 title="GitHub"
                                 aria-label="GitHub profile"
                             >
@@ -206,7 +204,7 @@ export default function Hero() {
                                 href={personalInfo.socials.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-2 rounded-lg bg-[#21191D] hover:bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] transition-colors"
+                                className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
                                 title="LinkedIn"
                                 aria-label="LinkedIn profile"
                             >
@@ -215,7 +213,7 @@ export default function Hero() {
 
                             <a
                                 href={`mailto:${personalInfo.email}`}
-                                className="p-2 rounded-lg bg-[#21191D] hover:bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] transition-colors"
+                                className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
                                 title="Email"
                                 aria-label="Send email"
                             >
@@ -228,54 +226,55 @@ export default function Hero() {
 
                     {/* Right Column */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
-                            duration: 0.6,
-                            delay: 0.15
+                            duration: shouldReduceMotion ? 0 : 0.55,
+                            delay: shouldReduceMotion ? 0 : 0.12,
+                            ease: "easeOut"
                         }}
                         className="lg:col-span-5"
                     >
 
-                        <div className="rounded-2xl bg-[#21191D] border border-[#49323C] p-6 sm:p-7 space-y-6 shadow-2xl shadow-black/50">
+                        <div className="border border-[#26364D] p-6 sm:p-7 space-y-6 bg-[#0F192B] transition-all duration-200 hover:border-[#60A5FA]/60">
 
                             {/* Overview Header */}
-                            <div className="flex items-center justify-between pb-4 border-b border-[#49323C]">
+                            <div className="flex items-center justify-between pb-3 border-b border-[#26364D]">
 
                                 <div className="flex items-center gap-2">
-                                    <span className="w-2.5 h-2.5 rounded-full bg-[#84445C]" />
+                                    <span className="w-1.5 h-1.5 bg-[#60A5FA]" />
 
-                                    <span className="text-xs font-mono uppercase tracking-wider text-[#F0DCE2] font-semibold">
+                                    <span className="text-xs font-mono uppercase tracking-wider text-[#F1F5F9]">
                                         Developer Overview
                                     </span>
                                 </div>
 
-                                <span className="text-[11px] font-mono text-[#BB786D] bg-[#291D23] px-2.5 py-0.5 rounded border border-[#49323C]">
+                                <span className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5">
                                     2026
                                 </span>
 
                             </div>
 
                             {/* Development Areas */}
-                            <div className="space-y-4">
+                            <div className="space-y-3">
 
                                 {/* Frontend */}
-                                <div className="p-3.5 rounded-xl bg-[#291D23] border border-[#49323C]/80 space-y-1.5 transition-colors hover:border-[#84445C]/60">
+                                <div className="p-3 border border-[#26364D] space-y-1">
 
                                     <div className="flex items-center justify-between gap-2 text-xs">
 
-                                        <span className="font-semibold text-[#F0DCE2] flex items-center gap-2">
-                                            <Layers className="w-3.5 h-3.5 text-[#BB786D]" />
+                                        <span className="text-[#F1F5F9] flex items-center gap-2">
+                                            <Layers className="w-4 h-4 text-[#60A5FA]" />
                                             Frontend Development
                                         </span>
 
-                                        <span className="text-[10px] font-mono text-[#A18D96]">
+                                        <span className="text-[10px] font-mono text-[#A7B5C9]">
                                             HTML / CSS / JS
                                         </span>
 
                                     </div>
 
-                                    <p className="text-xs text-[#A18D96] leading-relaxed">
+                                    <p className="text-xs text-[#A7B5C9] leading-relaxed">
                                         Building responsive web interfaces
                                         with semantic HTML, modern CSS,
                                         and interactive JavaScript.
@@ -284,22 +283,22 @@ export default function Hero() {
                                 </div>
 
                                 {/* Backend */}
-                                <div className="p-3.5 rounded-xl bg-[#291D23] border border-[#49323C]/80 space-y-1.5 transition-colors hover:border-[#84445C]/60">
+                                <div className="p-3 border border-[#26364D] space-y-1">
 
                                     <div className="flex items-center justify-between gap-2 text-xs">
 
-                                        <span className="font-semibold text-[#F0DCE2] flex items-center gap-2">
-                                            <Cpu className="w-3.5 h-3.5 text-[#BB786D]" />
+                                        <span className="text-[#F1F5F9] flex items-center gap-2">
+                                            <Cpu className="w-4 h-4 text-[#60A5FA]" />
                                             Backend Development
                                         </span>
 
-                                        <span className="text-[10px] font-mono text-[#A18D96]">
+                                        <span className="text-[10px] font-mono text-[#A7B5C9]">
                                             Python / Flask
                                         </span>
 
                                     </div>
 
-                                    <p className="text-xs text-[#A18D96] leading-relaxed">
+                                    <p className="text-xs text-[#A7B5C9] leading-relaxed">
                                         Developing web applications,
                                         server-side functionality,
                                         and database-connected features
@@ -309,22 +308,22 @@ export default function Hero() {
                                 </div>
 
                                 {/* Database */}
-                                <div className="p-3.5 rounded-xl bg-[#291D23] border border-[#49323C]/80 space-y-1.5 transition-colors hover:border-[#84445C]/60">
+                                <div className="p-3 border border-[#26364D] space-y-1">
 
                                     <div className="flex items-center justify-between gap-2 text-xs">
 
-                                        <span className="font-semibold text-[#F0DCE2] flex items-center gap-2">
-                                            <CheckCircle2 className="w-3.5 h-3.5 text-[#BB786D]" />
+                                        <span className="text-[#F1F5F9] flex items-center gap-2">
+                                            <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
                                             Database & Tools
                                         </span>
 
-                                        <span className="text-[10px] font-mono text-[#A18D96]">
+                                        <span className="text-[10px] font-mono text-[#A7B5C9]">
                                             SQL / Git
                                         </span>
 
                                     </div>
 
-                                    <p className="text-xs text-[#A18D96] leading-relaxed">
+                                    <p className="text-xs text-[#A7B5C9] leading-relaxed">
                                         Working with relational databases,
                                         version control, GitHub, and
                                         application deployment workflows.
@@ -335,23 +334,23 @@ export default function Hero() {
                             </div>
 
                             {/* Portfolio Information */}
-                            <div className="grid grid-cols-2 gap-3 pt-2">
+                            <div className="grid grid-cols-2 gap-3 pt-1">
 
-                                <div className="p-3 rounded-xl bg-[#291D23] border border-[#49323C]">
+                                <div className="p-3 border border-[#26364D]">
 
-                                    <div className="text-2xl font-bold font-editorial text-[#F0DCE2]">
+                                    <div className="text-2xl font-bold font-editorial text-[#F1F5F9]">
                                         {projects.length}
                                     </div>
 
-                                    <div className="text-[11px] font-mono text-[#A18D96]">
+                                    <div className="text-[11px] font-mono text-[#A7B5C9]">
                                         Featured Projects
                                     </div>
 
                                 </div>
 
-                                <div className="p-3 rounded-xl bg-[#291D23] border border-[#49323C]">
+                                <div className="p-3 border border-[#26364D]">
 
-                                    <div className="flex items-center gap-2 text-[#BB786D]">
+                                    <div className="flex items-center gap-2 text-[#A5D8FF]">
                                         <GraduationCap className="w-5 h-5" />
 
                                         <span className="text-lg font-bold font-editorial">
@@ -359,7 +358,7 @@ export default function Hero() {
                                         </span>
                                     </div>
 
-                                    <div className="text-[11px] font-mono text-[#A18D96]">
+                                    <div className="text-[11px] font-mono text-[#A7B5C9]">
                                         CSE Student
                                     </div>
 
