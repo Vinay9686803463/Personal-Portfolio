@@ -1,15 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-import {
-    Menu,
-    X,
-    Bot,
-    Mail,
-    ArrowUpRight
-} from "lucide-react";
-
+import { Menu, X, Mail, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 
 const navItems = [
@@ -28,24 +20,18 @@ export default function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
-
             const scrollPosition = window.scrollY + 220;
 
             for (const item of navItems) {
                 const sectionId = item.href.substring(1);
                 const section = document.getElementById(sectionId);
 
-                if (!section) {
-                    continue;
-                }
+                if (!section) continue;
 
                 const top = section.offsetTop;
                 const bottom = top + section.offsetHeight;
 
-                if (
-                    scrollPosition >= top &&
-                    scrollPosition < bottom
-                ) {
+                if (scrollPosition >= top && scrollPosition < bottom) {
                     setActiveSection(sectionId);
                     break;
                 }
@@ -53,38 +39,21 @@ export default function Navbar() {
         };
 
         handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
-        window.addEventListener("scroll", handleScroll, {
-            passive: true
-        });
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     const openChatWidget = (event) => {
         event.preventDefault();
-
-        const chatButton = document.getElementById(
-            "chat-toggle-btn"
-        );
-
-        if (chatButton) {
-            chatButton.click();
-        }
-
+        document.getElementById("chat-toggle-btn")?.click();
         setMobileMenuOpen(false);
     };
 
-    const closeMobileMenu = () => {
-        setMobileMenuOpen(false);
-    };
+    const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
-        <header
-            className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all duration-300"
-        >
+        <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all duration-300">
             <div
                 className={`
                     max-w-6xl mx-auto rounded-xl
@@ -98,39 +67,27 @@ export default function Navbar() {
                 `}
             >
                 <div className="flex items-center justify-between">
-
-                    {/* Portfolio Brand */}
                     <a
                         href="#about"
                         onClick={closeMobileMenu}
                         className="flex items-center gap-3 group"
                     >
-                        <span
-                            className="w-8 h-8 rounded-lg bg-[#291D23] border border-[#49323C] flex items-center justify-center font-editorial italic text-lg text-[#F0DCE2] group-hover:border-[#84445C] transition-colors"
-                        >
+                        <span className="w-8 h-8 rounded-lg bg-[#291D23] border border-[#49323C] flex items-center justify-center font-editorial italic text-lg text-[#F0DCE2] group-hover:border-[#84445C] transition-colors">
                             V
                         </span>
 
                         <div className="flex flex-col text-left">
-                            <span
-                                className="font-semibold text-sm tracking-tight text-[#F0DCE2] group-hover:text-[#D6A19A] transition-colors"
-                            >
+                            <span className="font-semibold text-sm tracking-tight text-[#F0DCE2] group-hover:text-[#D6A19A] transition-colors">
                                 {personalInfo.name}
-
-                                <span className="text-[#BB786D]">
-                                    .
-                                </span>
+                                <span className="text-[#BB786D]">.</span>
                             </span>
 
-                            <span
-                                className="text-[11px] font-mono text-[#A18D96] uppercase tracking-wider"
-                            >
+                            <span className="text-[11px] font-mono text-[#A18D96] uppercase tracking-wider">
                                 B.Tech CSE &bull; Web Developer
                             </span>
                         </div>
                     </a>
 
-                    {/* Desktop Navigation */}
                     <nav
                         className="hidden md:flex items-center gap-1"
                         aria-label="Main navigation"
@@ -143,13 +100,10 @@ export default function Navbar() {
                                 <a
                                     key={item.label}
                                     href={item.href}
-                                    aria-current={
-                                        isActive ? "location" : undefined
-                                    }
+                                    aria-current={isActive ? "location" : undefined}
                                     className={`
                                         relative px-3.5 py-1.5 rounded-lg
-                                        text-xs font-medium
-                                        transition-all duration-200
+                                        text-xs font-medium transition-all duration-200
                                         ${
                                             isActive
                                                 ? "text-[#F0DCE2] bg-[#33232B] font-semibold"
@@ -175,46 +129,29 @@ export default function Navbar() {
                         })}
                     </nav>
 
-                    {/* Desktop Actions */}
                     <div className="hidden lg:flex items-center gap-3">
-
                         <a
                             href="#chat-widget"
                             onClick={openChatWidget}
-                            className="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[#291D23] hover:bg-[#33232B] text-[#C2AEB5] hover:text-[#F0DCE2] border border-[#49323C] hover:border-[#84445C] transition-all duration-200 flex items-center gap-2"
+                            className="px-4 py-1.5 rounded-lg text-xs font-medium border border-[#49323C] bg-[#291D23] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] transition-colors"
                         >
-                            <Bot className="w-3.5 h-3.5 text-[#BB786D]" />
-
-                            <span>
-                                Ask Assistant
-                            </span>
+                            <span>Ask Assistant</span>
                         </a>
 
                         <a
                             href="#contact"
                             className="px-4 py-1.5 rounded-lg text-xs font-semibold bg-[#84445C] hover:bg-[#96546D] text-[#F0DCE2] border border-[#BB786D]/40 shadow-md shadow-[#522838]/30 transition-all duration-200 flex items-center gap-1.5"
                         >
-                            <span>
-                                Connect
-                            </span>
-
+                            <span>Connect</span>
                             <ArrowUpRight className="w-3.5 h-3.5" />
                         </a>
-
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         type="button"
-                        onClick={() => {
-                            setMobileMenuOpen(!mobileMenuOpen);
-                        }}
+                        onClick={() => setMobileMenuOpen((previous) => !previous)}
                         className="md:hidden p-2 rounded-lg bg-[#291D23] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] focus:outline-none"
-                        aria-label={
-                            mobileMenuOpen
-                                ? "Close navigation menu"
-                                : "Open navigation menu"
-                        }
+                        aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                         aria-expanded={mobileMenuOpen}
                         aria-controls="mobile-navigation"
                     >
@@ -224,11 +161,9 @@ export default function Navbar() {
                             <Menu className="w-5 h-5" />
                         )}
                     </button>
-
                 </div>
             </div>
 
-            {/* Mobile Navigation */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
@@ -239,7 +174,6 @@ export default function Navbar() {
                         transition={{ duration: 0.2 }}
                         className="md:hidden max-w-6xl mx-auto mt-2 rounded-xl bg-[#21191D] p-5 border border-[#49323C] shadow-2xl space-y-4"
                     >
-
                         <nav
                             className="flex flex-col space-y-1"
                             aria-label="Mobile navigation"
@@ -256,8 +190,14 @@ export default function Navbar() {
                             ))}
                         </nav>
 
-                        {/* Mobile Contact Links */}
                         <div className="pt-3 border-t border-[#49323C] flex flex-col gap-2">
+                            <button
+                                type="button"
+                                onClick={openChatWidget}
+                                className="w-full text-center py-2.5 rounded-lg bg-[#291D23] text-[#C2AEB5] hover:text-[#F0DCE2] hover:border-[#84445C] border border-[#49323C] text-xs font-medium transition-colors"
+                            >
+                                Ask Assistant
+                            </button>
 
                             <a
                                 href={personalInfo.socials.github}
@@ -275,14 +215,9 @@ export default function Navbar() {
                                 className="w-full text-center py-2.5 rounded-lg bg-[#84445C] hover:bg-[#96546D] text-[#F0DCE2] font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
                             >
                                 <Mail className="w-3.5 h-3.5" />
-
-                                <span>
-                                    Email Vinay
-                                </span>
+                                <span>Email Vinay</span>
                             </a>
-
                         </div>
-
                     </motion.div>
                 )}
             </AnimatePresence>
