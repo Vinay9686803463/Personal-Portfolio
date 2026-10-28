@@ -1,6 +1,6 @@
 # ⚡ Vinay Sollapure — Interactive Developer Portfolio
 
-[![Live Demo](https://img.shields.io/badge/Portfolio-Live_Demo-84445C?style=for-the-badge&logo=vercel&logoColor=white)](https://personal-portfolio-taupe-ten.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Portfolio-Live_Demo-84445C?style=for-the-badge&logo=vercel&logoColor=white)](https://personal-portfolio-sigma-swart-38.vercel.app/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite)](https://vite.dev/)
@@ -8,7 +8,7 @@
 
 A modern, responsive developer portfolio built for **Vinay Sollapure**, a B.Tech Computer Science and Engineering student interested in web development and practical software projects.
 
-🌐 **Live Website:** [Visit Portfolio](https://personal-portfolio-taupe-ten.vercel.app/)
+🌐 **Live Website:** [My Personal-Portfolio](https://personal-portfolio-sigma-swart-38.vercel.app/)
 
 ---
 
@@ -119,7 +119,7 @@ A student-support web application designed to bring academic resources and stude
 - **Email:** [vinayssollapure@gmail.com](mailto:vinayssollapure@gmail.com)
 - **LinkedIn:** [linkedin.com/in/vinay-sollapure-94474b2a4/](https://www.linkedin.com/in/vinay-sollapure-94474b2a4/)
 - **GitHub:** [github.com/Vinay9686803463](https://github.com/Vinay9686803463)
-- **Portfolio:** [Visit Live Website](https://personal-portfolio-taupe-ten.vercel.app/)
+- **Portfolio:** [Visit My Personal-Portfolio](https://personal-portfolio-sigma-swart-38.vercel.app/)
 
 ---
 
