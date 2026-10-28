@@ -126,8 +126,8 @@ document.addEventListener("keydown", (event) => {
    RESET MENU ON DESKTOP
 ========================================== */
 
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
+globalThis.addEventListener("resize", () => {
+    if (globalThis.innerWidth > 768) {
         closeMenu();
     }
 });

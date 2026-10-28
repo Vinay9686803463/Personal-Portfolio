@@ -19,8 +19,8 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-            const scrollPosition = window.scrollY + 220;
+            setScrolled(globalThis.scrollY > 20);
+            const scrollPosition = globalThis.scrollY + 220;
 
             for (const item of navItems) {
                 const sectionId = item.href.substring(1);
@@ -39,9 +39,9 @@ export default function Navbar() {
         };
 
         handleScroll();
-        window.addEventListener("scroll", handleScroll, { passive: true });
+        globalThis.addEventListener("scroll", handleScroll, { passive: true });
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => globalThis.removeEventListener("scroll", handleScroll);
     }, []);
 
     const openChatWidget = (event) => {

@@ -23,10 +23,10 @@ export default function ChatWidget() {
     useEffect(() => {
         const handleOpenChat = () => setIsOpen(true);
 
-        window.addEventListener("open-portfolio-chat", handleOpenChat);
+        globalThis.addEventListener("open-portfolio-chat", handleOpenChat);
 
         return () => {
-            window.removeEventListener("open-portfolio-chat", handleOpenChat);
+            globalThis.removeEventListener("open-portfolio-chat", handleOpenChat);
         };
     }, []);
 

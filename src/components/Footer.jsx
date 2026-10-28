@@ -10,7 +10,7 @@ import { personalInfo } from '../data/portfolioData';
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    globalThis.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -189,6 +189,7 @@ export default function Footer() {
             </div>
 
             <button
+            type="button"
               onClick={scrollToTop}
               className="px-3 py-1.5 rounded-lg bg-[#291D23] hover:bg-[#33232B] border border-[#49323C] text-[#C2AEB5] hover:text-[#F0DCE2] text-xs font-mono flex items-center gap-1.5 self-start transition-colors"
             >
