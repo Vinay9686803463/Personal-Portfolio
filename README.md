@@ -117,8 +117,8 @@ A student-support web application designed to bring academic resources and stude
 
 - **Name:** Vinay Sollapure
 - **Email:** [vinayssollapure@gmail.com](mailto:vinayssollapure@gmail.com)
-- **LinkedIn:** [Vinay Sollapure](https://www.linkedin.com/in/vinay-sollapure-94474b2a4/)
-- **GitHub:** [Vinay9686803463](https://github.com/Vinay9686803463)
+- **LinkedIn:** [linkedin.com/in/vinay-sollapure-94474b2a4/](https://www.linkedin.com/in/vinay-sollapure-94474b2a4/)
+- **GitHub:** [github.com/Vinay9686803463](https://github.com/Vinay9686803463)
 - **Portfolio:** [Visit Live Website](https://personal-portfolio-taupe-ten.vercel.app/)
 
 ---
