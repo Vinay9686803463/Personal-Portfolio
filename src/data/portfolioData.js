@@ -126,42 +126,42 @@ export function queryChatbotResponse(query) {
 
 
 export const skillCategories = [
-  {
-    id: "frontend",
-    title: "Frontend Development",
-    description: "Building responsive and interactive web interfaces",
-    skills: [
-      { name: "HTML" },
-      { name: "CSS" },
-      { name: "JavaScript" }
-    ]
-  },
-  {
-    id: "backend",
-    title: "Backend Development",
-    description: "Server-side application development",
-    skills: [
-      { name: "Python" },
-      { name: "Flask" }
-    ]
-  },
-  {
-    id: "database",
-    title: "Database",
-    description: "Database technologies and data management",
-    skills: [
-      { name: "SQL" },
-      { name: "PostgreSQL" },
-      { name: "Supabase" }
-    ]
-  },
-  {
-    id: "tools",
-    title: "Development Tools",
-    description: "Version control and project collaboration",
-    skills: [
-      { name: "Git" },
-      { name: "GitHub" }
-    ]
-  }
+    {
+        id: "frontend",
+        title: "Frontend Development",
+        description: "Building responsive and interactive web interfaces",
+        skills: [
+            { name: "HTML" },
+            { name: "CSS" },
+            { name: "JavaScript" }
+        ]
+    },
+    {
+        id: "backend",
+        title: "Backend Development",
+        description: "Server-side application development",
+        skills: [
+            { name: "Python" },
+            { name: "Flask" }
+        ]
+    },
+    {
+        id: "database",
+        title: "Database",
+        description: "Database technologies and data management",
+        skills: [
+            { name: "SQL" },
+            { name: "PostgreSQL" },
+            { name: "Supabase" }
+        ]
+    },
+    {
+        id: "tools",
+        title: "Development Tools",
+        description: "Version control and project collaboration",
+        skills: [
+            { name: "Git" },
+            { name: "GitHub" }
+        ]
+    }
 ];
