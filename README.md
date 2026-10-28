@@ -1,34 +1,43 @@
-# ⚡ Vishal S Sollapure — Interactive Developer Portfolio & AI Hub
+# ⚡ Vinay Sollapure — Interactive Developer Portfolio
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://personal-portfolio-taupe-ten.vercel.app/)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
-[![Gemini API](https://img.shields.io/badge/Gemini_API-GenAI-8E7CC3?style=flat-square&logo=google)](https://ai.google.dev/)
+[![Live Demo](https://img.shields.io/badge/Portfolio-Live_Demo-84445C?style=for-the-badge&logo=vercel&logoColor=white)](https://personal-portfolio-taupe-ten.vercel.app/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38BDF8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat-square&logo=vite)](https://vite.dev/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=flat-square&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-A modern, high-performance, dark-neon developer portfolio built for **Vishal S Sollapure** — Full-Stack Web Developer & AI / GenAI Specialist.
+A modern, responsive developer portfolio built for **Vinay Sollapure**, a B.Tech Computer Science and Engineering student interested in web development and practical software projects.
 
-🌐 **Live Website**: [https://personal-portfolio-taupe-ten.vercel.app/](https://personal-portfolio-taupe-ten.vercel.app/)
+🌐 **Live Website:** [Visit Portfolio](https://personal-portfolio-taupe-ten.vercel.app/)
 
 ---
 
 ## ✨ Features
 
-- 👤 **Interactive Hero & Glowing Double-Ring Avatar:** Circular avatar with glowing gradient borders (`cyan-500` to `violet-600`) and backdrop blur effects.
-- 🎨 **Dark Neon Aesthetic:** Custom dark-mode theme featuring cyan and violet gradients with glassmorphism.
-- ⚡ **Lightning Fast:** Built with Vite and React for instant page loads and smooth scrolling.
-- 📱 **Fully Responsive:** Designed mobile-first, supporting mobile, tablet, and desktop viewports.
-- 🤖 **Interactive AI Assistant:** Integrated chatbot interface powered by Gemini API to answer questions about skills, resume, and projects.
-- 📊 **Skills Matrix:** Categorized technical stack covering Frontend, AI & GenAI, Backend & Databases, and DevOps tooling.
-- 💼 **Interactive Experience Timeline:** Chronological timeline showcasing software development internships and educational background.
+- 👤 **Personal Introduction:** A dedicated section presenting my background and interests in software development.
+- 🎨 **Custom Dark Theme:** A distinctive dark-plum colour palette with muted rose accents and consistent styling.
+- ⚡ **Responsive Interface:** Built to provide a smooth browsing experience across desktop, tablet, and mobile devices.
+- 🤖 **Portfolio Assistant:** An interactive chat interface for visitors to ask about my skills, projects, education, and contact information.
+- 📊 **Technical Skills:** A structured presentation of frontend, backend, database, and development tools.
+- 💼 **Project Showcase:** Highlights my Smart Attendance System and Student Support AI projects.
+- 🎓 **Education Section:** Presents my Computer Science and Engineering academic background.
+- 📬 **Contact and Social Links:** Quick access to my email, GitHub, and LinkedIn profiles.
+- ✨ **Smooth Animations:** Uses Framer Motion to enhance interface transitions and navigation interactions.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Tailwind CSS, JavaScript (ES6+), Framer Motion, Lucide Icons
-- **AI & GenAI:** Gemini API, RAG Architecture, Python, Prompt Engineering, Streamlit, Pydantic
-- **Build & Deployment:** Vite, Vercel, Git, GitHub
+- **Frontend:** React.js, JavaScript (ES6+), HTML5, Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Build Tool:** Vite
+- **Development Tools:** Git, GitHub, VS Code
+
+### Project Technologies
+
+- **Smart Attendance System:** Python, Flask, OpenCV, QR Code, SQLAlchemy, PostgreSQL/Supabase
+- **Student Support AI:** Python, Flask, HTML, CSS, JavaScript, Supabase PostgreSQL
 
 ---
 
@@ -36,28 +45,84 @@ A modern, high-performance, dark-neon developer portfolio built for **Vishal S S
 
 ```bash
 # Clone the repository
-git clone https://github.com/vishal-s-sollapure/Personal-Portfolio.git
+git clone https://github.com/Vinay9686803463/personal-portfolio.git
 
-# Navigate into project directory
-cd Personal-Portfolio
+# Navigate into the project directory
+cd personal-portfolio
 
 # Install dependencies
 npm install
 
-# Start local server
+# Start the development server
 npm run dev
 ```
+
+Open the local URL displayed in your terminal to view the portfolio.
+
+---
+
+## 📁 Project Structure
+
+```text
+personal-portfolio/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   └── ChatWidget.jsx
+│   ├── data/
+│   │   └── portfolioData.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
+```
+
+*Note: This is the expected high-level structure; adjust it to match the files in your repository.*
+
+---
+
+## 💼 Featured Projects
+
+### 1. Smart Attendance System
+
+A student attendance management project focused on streamlining attendance recording and tracking using computer vision and QR-based workflows.
+
+**Technologies:** Python, Flask, OpenCV, QR Code, SQLAlchemy, Supabase PostgreSQL
+
+🔗 **GitHub Repository:** [Smart Attendance System](https://github.com/Vinay9686803463/smart-attendance-system)
+
+### 2. Student Support AI
+
+A student-support web application designed to bring academic resources and student assistance features into one place, with a focus on VTU Computer Science and Engineering resources.
+
+**Technologies:** Python, Flask, HTML, CSS, JavaScript, Supabase PostgreSQL
+
+🔗 **GitHub Repository:** [Student Support AI](https://github.com/Vinay9686803463/student-support-ai)
+
+---
+
+## 📚 Education
+
+- **Degree:** B.Tech — Computer Science and Engineering
+- **Institution:** Aditya College of Engineering and Technology, Bengaluru
+- **Focus:** Software development, web technologies, databases, and academic projects
 
 ---
 
 ## 📬 Contact & Connect
 
-- **Name**: Vishal S Sollapure
-- **Email**: [vishalssollapure@gmail.com](mailto:vishalssollapure@gmail.com)
-- **LinkedIn**: [linkedin.com/in/vishal-s-sollapure-0bb4b2384](https://linkedin.com/in/vishal-s-sollapure-0bb4b2384)
-- **GitHub**: [github.com/vishal-s-sollapure](https://github.com/vishal-s-sollapure)
-- **Live Site**: [https://personal-portfolio-taupe-ten.vercel.app/](https://personal-portfolio-taupe-ten.vercel.app/)
+- **Name:** Vinay Sollapure
+- **Email:** [vinayssollapure@gmail.com](mailto:vinayssollapure@gmail.com)
+- **LinkedIn:** [linkedin.com/in/vinay-sollapure-94474b2a4/](https://www.linkedin.com/in/vinay-sollapure-94474b2a4/)
+- **GitHub:** [github.com/Vinay9686803463](https://github.com/Vinay9686803463)
+- **Portfolio:** [Visit Live Website](https://personal-portfolio-taupe-ten.vercel.app/)
 
 ---
 
-Developed with ❤️ by **Vishal S Sollapure**.
+Developed with ❤️ by **Vinay Sollapure**.
+
+*Building practical projects and continuously improving my software development skills.*
