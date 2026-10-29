@@ -12,14 +12,14 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: "#0B1220",
-                surface: "#0F192B",
-                card: "#111D32",
-                accent: "#60A5FA",
-                accentLight: "#A5D8FF",
-                textPrimary: "#F1F5F9",
-                textSecondary: "#A7B5C9",
-                borderColor: "#26364D"
+                background: "#050711",
+                surface: "#10121F",
+                card: "#151827",
+                accent: "#7957F6",
+                accentLight: "#A78BFA",
+                textPrimary: "#F4F5FA",
+                textSecondary: "#969BAD",
+                borderColor: "rgba(255, 255, 255, 0.08)"
             },
 
             fontFamily: {

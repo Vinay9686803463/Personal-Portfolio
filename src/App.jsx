@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
     return (
-        <div className="min-h-screen bg-[#0B1220] text-[#F1F5F9] font-sans antialiased">
+        <div className="min-h-screen bg-[#050711] text-[#F4F5FA] font-sans antialiased">
             <Navbar />
 
             <main>

@@ -9,123 +9,94 @@ export default function Skills() {
     const filteredCategories =
         activeCategory === "all"
             ? skillCategories
-            : skillCategories.filter(
-                  (category) => category.id === activeCategory
-              );
+            : skillCategories.filter((category) => category.id === activeCategory);
+
+    const tabs = [
+        { id: "all", label: "All" },
+        ...skillCategories.map((category) => ({ id: category.id, label: category.title }))
+    ];
 
     return (
-        <section
-            id="skills"
-            className="py-28 bg-[#0B1220] relative border-t border-[#26364D]"
-        >
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                {/* Section Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-4 border-b border-[#26364D] gap-6">
-                    <div className="space-y-2 max-w-2xl">
-                        <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
-                            02 &bull; Technical Skills
-                        </div>
-
-                        <h2 className="text-3xl sm:text-4xl font-semibold text-[#F1F5F9] tracking-tight">
-                            Skills &amp; Technical Expertise
+        <section id="skills" className="relative border-b border-white/[0.07] bg-[#050711] py-20 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+                <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                        <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+                            02 — Technical Skills
+                        </p>
+                        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                            Skills & Technical Expertise
                         </h2>
-
-                        <p className="text-sm text-[#A7B5C9] leading-relaxed">
-                            Technologies and tools I use to develop web
-                            applications, build backend functionality,
-                            work with databases, and manage software projects.
+                        <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+                            Technologies and tools I use to develop web applications, build backend
+                            functionality, work with databases, and manage software projects.
                         </p>
                     </div>
 
-                    {/* Category Filters */}
-                    <div className="flex flex-wrap gap-2 self-start md:self-end">
-                        <button
-                            type="button"
-                            onClick={() => setActiveCategory("all")}
-                            className={`px-2.5 py-1 text-xs transition-colors ${
-                                activeCategory === "all"
-                                    ? "text-[#F1F5F9] border-b border-[#60A5FA]"
-                                    : "text-[#A7B5C9] hover:text-[#F1F5F9]"
-                            }`}
-                        >
-                            All Categories
-                        </button>
-
-                        {skillCategories.map((category) => (
+                    <div className="flex flex-wrap gap-2">
+                        {tabs.map((tab) => (
                             <button
-                                key={category.id}
+                                key={tab.id}
                                 type="button"
-                                onClick={() => setActiveCategory(category.id)}
-                                className={`px-2.5 py-1 text-xs transition-colors ${
-                                    activeCategory === category.id
-                                        ? "text-[#F1F5F9] border-b border-[#60A5FA]"
-                                        : "text-[#A7B5C9] hover:text-[#F1F5F9]"
+                                onClick={() => setActiveCategory(tab.id)}
+                                className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+                                    activeCategory === tab.id
+                                        ? "border border-violet-400/40 bg-violet-400/[0.08] text-white"
+                                        : "border border-white/[0.09] text-slate-400 hover:text-white"
                                 }`}
                             >
-                                {category.title}
+                                {tab.label}
                             </button>
                         ))}
                     </div>
                 </div>
 
-                {/* Skills Categories */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     {filteredCategories.map((category, index) => (
-                        <motion.div
+                        <motion.article
                             key={category.id}
-                            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{
-                                duration: shouldReduceMotion ? 0 : 0.35,
+                                duration: shouldReduceMotion ? 0 : 0.4,
                                 delay: shouldReduceMotion ? 0 : index * 0.05,
                                 ease: "easeOut"
                             }}
-                            className="border-t border-[#26364D] pt-6 first:pt-0"
+                            className="group relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f] p-6 transition-colors hover:border-violet-400/40 sm:p-7"
                         >
-                            <div className="flex items-start justify-between gap-4 mb-4">
+                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                            <div className="mb-5 flex items-start justify-between gap-4">
                                 <div>
-                                    <h3 className="text-lg font-semibold text-[#F1F5F9] tracking-tight">
-                                        {category.title}
-                                    </h3>
-                                    <p className="text-xs text-[#A7B5C9] mt-1">
-                                        {category.description}
-                                    </p>
+                                    <h3 className="text-lg font-medium text-white">{category.title}</h3>
+                                    <p className="mt-1 text-sm text-slate-400">{category.description}</p>
                                 </div>
-                                <span className="text-[11px] font-mono text-[#A7B5C9]">
+                                <span className="rounded-md border border-white/[0.09] px-2 py-0.5 text-xs text-slate-400">
                                     {category.skills.length}
                                 </span>
                             </div>
-
-                            {/* Individual Skills */}
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-2 gap-x-6">
+                            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                                 {category.skills.map((skill) => (
                                     <div
                                         key={skill.name}
-                                        className="flex items-center gap-2 text-sm text-[#F1F5F9]"
+                                        className="flex items-center gap-2 rounded-md border border-white/[0.07] bg-white/[0.01] px-3 py-2 text-sm text-slate-200 transition-colors hover:border-violet-400/40 hover:text-white"
                                     >
-                                        <span className="w-1 h-1 bg-[#60A5FA]" />
-                                        <span>{skill.name}</span>
+                                        <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                                        {skill.name}
                                     </div>
                                 ))}
                             </div>
-                        </motion.div>
+                        </motion.article>
                     ))}
                 </div>
 
-                {/* Learning Statement */}
-                <div className="mt-10 pt-6 border-t border-[#26364D]">
-                    <p className="text-sm text-[#A7B5C9] leading-relaxed">
-                        <span className="text-[#A5D8FF]">
-                            Continuous learning:
-                        </span>{" "}
-                        I continue to improve my programming and
-                        problem-solving skills by building practical
-                        projects and exploring new development tools.
+                <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#10121f] px-6 py-5 sm:px-7">
+                    <p className="text-sm text-slate-400">
+                        <span className="text-violet-300">Continuous learning:</span> I continue to
+                        improve my programming and problem-solving skills by building practical projects
+                        and exploring new development tools.
                     </p>
                 </div>
-
             </div>
         </section>
     );
