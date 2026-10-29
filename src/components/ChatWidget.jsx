@@ -1,13 +1,7 @@
-
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Bot, X, Send } from "lucide-react";
-
-import {
-    personalInfo,
-    chatbotPresets,
-    queryChatbotResponse
-} from "../data/portfolioData";
+import { personalInfo, chatbotPresets, queryChatbotResponse } from "../data/portfolioData";
 
 export default function ChatWidget() {
     const shouldReduceMotion = useReducedMotion();
@@ -23,30 +17,23 @@ export default function ChatWidget() {
 
     useEffect(() => {
         const handleOpenChat = () => setIsOpen(true);
-
         globalThis.addEventListener("open-portfolio-chat", handleOpenChat);
-
-        return () => {
-            globalThis.removeEventListener("open-portfolio-chat", handleOpenChat);
-        };
+        return () => globalThis.removeEventListener("open-portfolio-chat", handleOpenChat);
     }, []);
 
     const sendMessage = (text = input) => {
         const query = text.trim();
-
         if (!query) return;
 
         let reply;
-
         try {
             reply = queryChatbotResponse(query);
-
             if (typeof reply !== "string" || !reply.trim()) {
-                reply = "I couldn't find an answer to that. Try asking about my skills, projects, education, or contact details.";
+                reply = "I can help with skills, projects, education, and contact information. Try asking about one of these topics.";
             }
         } catch (error) {
             console.error("Portfolio Assistant error:", error);
-            reply = "Sorry, I couldn't process that question. Please try asking about skills, projects, education, or contact details.";
+            reply = "I can help with skills, projects, education, and contact information. Try asking about one of these topics.";
         }
 
         setMessages((previous) => [
@@ -54,7 +41,6 @@ export default function ChatWidget() {
             { role: "user", text: query },
             { role: "assistant", text: reply }
         ]);
-
         setInput("");
     };
 
@@ -64,83 +50,60 @@ export default function ChatWidget() {
                 id="chat-toggle-btn"
                 type="button"
                 onClick={() => setIsOpen((previous) => !previous)}
-                className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 bg-[#60A5FA] text-[#0B1220] transition-all duration-200 hover:bg-[#A5D8FF] active:translate-y-[1px]"
+                className="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-violet-600 text-white transition-colors hover:bg-violet-500"
                 aria-label={isOpen ? "Close portfolio assistant" : "Open portfolio assistant"}
                 aria-expanded={isOpen}
                 aria-controls="portfolio-chat-panel"
             >
-                {isOpen ? (
-                    <X className="w-6 h-6" />
-                ) : (
-                    <Bot className="w-6 h-6" />
-                )}
+                {isOpen ? <X size={18} /> : <Bot size={18} />}
             </button>
 
             <AnimatePresence>
                 {isOpen && (
                     <motion.section
                         id="portfolio-chat-panel"
-                        initial={shouldReduceMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 12, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={shouldReduceMotion ? { opacity: 0, y: 0, scale: 1 } : { opacity: 0, y: 12, scale: 0.98 }}
-                        transition={{ duration: shouldReduceMotion ? 0.15 : 0.2, ease: "easeOut" }}
+                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={shouldReduceMotion ? { opacity: 0, y: 0 } : { opacity: 0, y: 10 }}
+                        transition={{ duration: shouldReduceMotion ? 0.15 : 0.2 }}
                         role="dialog"
                         aria-label="Portfolio Assistant"
-                        className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-96 max-h-[70vh] flex flex-col overflow-hidden bg-[#0F192B] border border-[#26364D]"
+                        className="fixed bottom-20 right-4 z-50 flex max-h-[70vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-xl border border-white/[0.1] bg-[#10121f] sm:right-5 sm:w-96"
                     >
-                        {/* Header */}
-                        <div className="flex items-center gap-3 p-4 border-b border-[#26364D]">
-                            <div className="flex items-center justify-center w-9 h-9 border border-[#26364D]">
-                                <Bot className="w-5 h-5 text-[#A5D8FF]" />
+                        <div className="flex items-center gap-3 border-b border-white/[0.08] px-4 py-3">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-violet-400/30 bg-violet-400/[0.08]">
+                                <Bot size={18} className="text-violet-300" />
                             </div>
-
-                            <div className="flex-1 min-w-0">
-                                <h2 className="text-sm font-semibold text-[#F1F5F9]">
-                                    Portfolio Assistant
-                                </h2>
-
-                                <p className="text-xs text-[#A7B5C9]">
-                                    Skills, projects &amp; background
-                                </p>
+                            <div className="flex-1">
+                                <p className="text-sm font-medium text-white">Portfolio Assistant</p>
+                                <p className="text-xs text-slate-500">Skills, projects & background</p>
                             </div>
-
                             <button
                                 type="button"
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 rounded-lg text-[#A7B5C9] hover:text-[#F1F5F9] hover:bg-[#111D32] transition-colors"
+                                className="text-slate-400 hover:text-white"
                                 aria-label="Close chat"
                             >
-                                <X className="w-4 h-4" />
+                                <X size={18} />
                             </button>
                         </div>
 
-                        {/* Messages */}
-                        <div
-                            className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3"
-                            aria-live="polite"
-                        >
+                        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3" aria-live="polite">
                             {messages.map((message, index) => (
-                                <motion.div
+                                <div
                                     key={`${message.role}-${index}`}
-                                    initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: shouldReduceMotion ? 0 : 0.15 }}
-                                    className={`flex ${
-                                        message.role === "user"
-                                            ? "justify-end"
-                                            : "justify-start"
-                                    }`}
+                                    className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                                 >
                                     <div
-                                        className={`max-w-[88%] px-3 py-2 text-sm leading-relaxed whitespace-pre-line ${
+                                        className={`max-w-[88%] whitespace-pre-line rounded-lg px-3 py-2 text-sm leading-relaxed ${
                                             message.role === "user"
-                                                ? "bg-[#60A5FA] text-[#0B1220]"
-                                                : "border border-[#26364D] text-[#A7B5C9]"
+                                                ? "bg-violet-600 text-white"
+                                                : "border border-white/[0.08] text-slate-300"
                                         }`}
                                     >
                                         {message.text}
                                     </div>
-                                </motion.div>
+                                </div>
                             ))}
 
                             {messages.length === 1 && (
@@ -150,7 +113,7 @@ export default function ChatWidget() {
                                             key={preset}
                                             type="button"
                                             onClick={() => sendMessage(preset)}
-                                            className="px-2.5 py-1 border border-[#26364D] text-xs text-[#A5D8FF] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200"
+                                            className="rounded-md border border-white/[0.09] px-2.5 py-1 text-xs text-slate-300 hover:border-violet-400/40 hover:text-white"
                                         >
                                             {preset}
                                         </button>
@@ -159,13 +122,12 @@ export default function ChatWidget() {
                             )}
                         </div>
 
-                        {/* Message input */}
                         <form
                             onSubmit={(event) => {
                                 event.preventDefault();
                                 sendMessage();
                             }}
-                            className="p-3 border-t border-[#26364D]"
+                            className="border-t border-white/[0.08] p-3"
                         >
                             <div className="flex items-center gap-2">
                                 <input
@@ -173,23 +135,18 @@ export default function ChatWidget() {
                                     value={input}
                                     onChange={(event) => setInput(event.target.value)}
                                     placeholder="Ask about skills or projects..."
-                                    className="flex-1 min-w-0 bg-[#0B1220] border border-[#26364D] px-3 py-2 text-sm text-[#F1F5F9] placeholder:text-[#A7B5C9]/70 outline-none focus:border-[#60A5FA]"
+                                    className="flex-1 rounded-md border border-white/[0.09] bg-transparent px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-violet-400/40 focus:outline-none"
                                     aria-label="Ask the portfolio assistant"
                                 />
-
                                 <button
                                     type="submit"
                                     disabled={!input.trim()}
-                                    className="p-2 bg-[#60A5FA] text-[#0B1220] disabled:opacity-40 transition-all duration-200 hover:bg-[#A5D8FF] active:translate-y-[1px]"
+                                    className="flex h-9 w-9 items-center justify-center rounded-md bg-violet-600 text-white disabled:opacity-40 hover:bg-violet-500"
                                     aria-label="Send message"
                                 >
-                                    <Send className="w-4 h-4" />
+                                    <Send size={16} />
                                 </button>
                             </div>
-
-                            <p className="text-[10px] text-[#A7B5C9]/70 mt-2 px-1">
-                                Answers are based on the portfolio's configured information.
-                            </p>
                         </form>
                     </motion.section>
                 )}

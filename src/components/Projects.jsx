@@ -1,165 +1,94 @@
-import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-
-import {
-    ArrowUpRight,
-    Code2
-} from "lucide-react";
-
+import { ArrowUpRight, ExternalLink, FolderCode } from "lucide-react";
 import { projects } from "../data/portfolioData";
 
 export default function Projects() {
     const shouldReduceMotion = useReducedMotion();
-    const [activeFilter, setActiveFilter] = useState("All");
-
-    const categories = [
-        "All",
-        "Web Development",
-        "Student Support"
-    ];
-
-    const filteredProjects =
-        activeFilter === "All"
-            ? projects
-            : projects.filter(
-                  (project) => project.category === activeFilter
-              );
 
     return (
-        <section
-            id="projects"
-            className="py-28 bg-[#0B1220] relative border-t border-[#26364D]"
-        >
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                {/* Section Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-4 border-b border-[#26364D] gap-6">
-                    <div className="space-y-2 max-w-2xl">
-                        <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
-                            03 &bull; My Work
-                        </div>
-
-                        <h2 className="text-3xl sm:text-4xl font-semibold text-[#F1F5F9] tracking-tight">
-                            Featured Projects
-                        </h2>
-
-                        <p className="text-sm text-[#A7B5C9] leading-relaxed">
-                            A selection of software projects focused on
-                            practical problem-solving, web application
-                            development, database integration, and
-                            student support.
-                        </p>
-                    </div>
-
-                    {/* Project Filters */}
-                    <div className="flex flex-wrap gap-2 self-start md:self-end">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                type="button"
-                                onClick={() => setActiveFilter(category)}
-                                className={`px-2.5 py-1 text-xs transition-colors ${
-                                    activeFilter === category
-                                        ? "text-[#F1F5F9] border-b border-[#60A5FA]"
-                                        : "text-[#A7B5C9] hover:text-[#F1F5F9]"
-                                }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
+        <section id="projects" className="relative border-b border-white/[0.07] bg-[#050711] py-20 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+                <div className="mb-10">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+                        Featured Projects
+                    </p>
+                    <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                        Some of My Recent Work
+                    </h2>
                 </div>
 
-                {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {filteredProjects.map((project, index) => (
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                    {projects.map((project, index) => (
                         <motion.article
                             key={project.id}
-                            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{
-                                duration: shouldReduceMotion ? 0 : 0.35,
+                                duration: shouldReduceMotion ? 0 : 0.4,
                                 delay: shouldReduceMotion ? 0 : index * 0.05,
                                 ease: "easeOut"
                             }}
-                            className="border border-[#26364D] bg-[#0F192B] p-6 sm:p-7 transition-all duration-200 hover:border-[#60A5FA]/70"
+                            className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f] transition-colors hover:border-violet-400/40"
                         >
-                            <div className="space-y-5">
-
-                                {/* Project Header */}
-                                <div className="flex flex-wrap items-start justify-between gap-4">
-                                    <div className="space-y-1">
-                                        <div className="flex items-center gap-2">
-                                            <Code2 className="w-4 h-4 text-[#60A5FA]" />
-                                            <span className="text-[11px] font-mono text-[#A7B5C9]">
-                                                {project.category || "Web Development"}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-xl font-semibold text-[#F1F5F9] tracking-tight">
+                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                            <div className="flex items-start justify-between gap-4 p-6 sm:p-7">
+                                <div className="flex items-center gap-3">
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-violet-400/30 bg-violet-400/[0.08]">
+                                        <FolderCode size={18} className="text-violet-300" />
+                                    </span>
+                                    <div>
+                                        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                                            Project {String(index + 1).padStart(2, "0")}
+                                        </p>
+                                        <h3 className="mt-1 text-lg font-medium text-white sm:text-xl">
                                             {project.title}
                                         </h3>
                                     </div>
-                                    <a
-                                        href={project.githubUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-xs text-[#A5D8FF] hover:text-[#F1F5F9] transition-all duration-200 group"
-                                    >
-                                        <span>Source</span>
-                                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
-                                    </a>
                                 </div>
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    aria-label="View project on GitHub"
+                                    className="text-slate-400 transition-colors hover:text-white"
+                                >
+                                    <ExternalLink size={18} />
+                                </a>
+                            </div>
 
-                                {/* Project Information */}
-                                <p className="text-sm text-[#A7B5C9] leading-relaxed max-w-2xl">
-                                    {project.description}
-                                </p>
-
-                                {/* Project Highlights */}
-                                {project.highlights?.length > 0 && (
-                                    <ul className="space-y-1.5">
-                                        {project.highlights.map(
-                                            (highlight, highlightIndex) => (
-                                                <li
-                                                    key={highlightIndex}
-                                                    className="flex items-start gap-2 text-xs sm:text-sm text-[#A7B5C9]"
-                                                >
-                                                    <span className="w-1 h-1 bg-[#60A5FA] shrink-0 mt-2" />
-                                                    <span>
-                                                        {highlight}
-                                                    </span>
-                                                </li>
-                                            )
-                                        )}
-                                    </ul>
-                                )}
-
-                                {/* Technologies */}
-                                <div className="flex flex-wrap gap-2 pt-2">
+                            <div className="px-6 sm:px-7">
+                                <p className="text-sm leading-7 text-slate-400">{project.description}</p>
+                                <div className="mt-4 flex flex-wrap gap-2">
                                     {project.techStack.map((tech) => (
                                         <span
                                             key={tech}
-                                            className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5"
+                                            className="rounded-md border border-white/[0.09] px-2.5 py-1 text-xs text-slate-300"
                                         >
                                             {tech}
                                         </span>
                                     ))}
                                 </div>
                             </div>
+
+                            <div className="mt-auto flex items-center justify-between gap-4 px-6 pb-6 pt-6 sm:px-7 sm:pb-7">
+                                <div className="flex items-center gap-2 text-xs text-slate-500">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                                    <span>Open Source</span>
+                                </div>
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="group inline-flex items-center gap-2 text-sm text-violet-300 transition-colors hover:text-white"
+                                >
+                                    View on GitHub
+                                    <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                                </a>
+                            </div>
                         </motion.article>
                     ))}
                 </div>
-
-                {/* Empty State */}
-                {filteredProjects.length === 0 && (
-                    <div className="py-10 text-center border border-[#26364D]">
-                        <p className="text-sm text-[#A7B5C9]">
-                            No projects found in this category.
-                        </p>
-                    </div>
-                )}
-
             </div>
         </section>
     );

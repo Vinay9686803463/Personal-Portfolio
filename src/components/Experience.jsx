@@ -1,157 +1,53 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { MapPin, GraduationCap, Code2 } from 'lucide-react';
-import { education, projects } from '../data/portfolioData';
+import { motion, useReducedMotion } from "framer-motion";
+import { GraduationCap } from "lucide-react";
+import { education } from "../data/portfolioData";
 
 export default function Experience() {
-  const shouldReduceMotion = useReducedMotion();
-  return (
-    <section
-      id="education"
-      className="py-28 bg-[#0B1220] relative border-t border-[#26364D]"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    const shouldReduceMotion = useReducedMotion();
 
-        {/* Education */}
-        <div>
-          <div className="mb-12 pb-4 border-b border-[#26364D] space-y-2">
-            <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
-              04 &bull; Academic Background
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#F1F5F9] tracking-tight">
-              Education &amp; Learning
-            </h2>
-
-            <p className="text-sm sm:text-base text-[#A7B5C9] leading-relaxed max-w-2xl">
-              My academic background and ongoing journey in computer science
-              and software development.
-            </p>
-          </div>
-
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: "easeOut" }}
-            className="border-t border-[#26364D] pt-6"
-          >
-            <div className="flex items-start gap-4">
-              <div className="p-2 border border-[#26364D]">
-                <GraduationCap className="w-6 h-6 text-[#A5D8FF]" />
-              </div>
-
-              <div className="flex-1 space-y-2">
-                <span className="text-[11px] font-mono text-[#A7B5C9] uppercase tracking-wider">
-                  Currently Pursuing
-                </span>
-
-                <h3 className="text-xl font-semibold text-[#F1F5F9]">
-                  {education.degree}
-                </h3>
-
-                <p className="text-sm text-[#A5D8FF] font-medium">
-                  {education.institution}
-                </p>
-
-                <div className="flex flex-wrap gap-4 text-xs text-[#A7B5C9]">
-                  <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#60A5FA]" />
-                    Bengaluru, Karnataka
-                  </span>
-
-                  <span>Visvesvaraya Technological University (VTU)</span>
+    return (
+        <section id="education" className="relative border-b border-white/[0.07] bg-[#050711] py-20 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
+                <div className="mb-10">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+                        Education
+                    </p>
+                    <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Academic Background</h2>
                 </div>
 
-                <p className="text-sm text-[#A7B5C9] leading-relaxed">
-                  {education.details}
-                </p>
-              </div>
+                <motion.div
+                    initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: "easeOut" }}
+                    className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f]"
+                >
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />
+                    <div className="flex flex-col gap-6 p-6 sm:flex-row sm:items-start sm:p-8">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-violet-400/30 bg-violet-400/[0.08]">
+                            <GraduationCap size={22} className="text-violet-300" />
+                        </span>
+                        <div className="flex-1">
+                            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                                <div>
+                                    <h3 className="text-lg font-medium text-white sm:text-xl">
+                                        {education.degree}
+                                    </h3>
+                                    <p className="mt-1 text-sm text-slate-300">
+                                        {education.institution}
+                                    </p>
+                                </div>
+                                <span className="rounded-md border border-white/[0.09] px-2.5 py-1 text-xs text-slate-400">
+                                    Currently Pursuing
+                                </span>
+                            </div>
+                            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+                                Currently pursuing a B.Tech in Computer Science and Engineering.
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
-          </motion.div>
-        </div>
-
-        {/* Project Highlights */}
-        <div id="achievements">
-          <div className="mb-12 pb-4 border-b border-[#26364D] space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
-              <Code2 className="w-4 h-4" />
-              <span>05 &bull; Project Highlights</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#F1F5F9] tracking-tight">
-              Work &amp; Projects
-            </h2>
-
-            <p className="text-sm sm:text-base text-[#A7B5C9] leading-relaxed max-w-2xl">
-              Practical software projects where I apply my programming,
-              web development, and database skills.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <motion.article
-                key={project.id}
-                initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.35, delay: shouldReduceMotion ? 0 : index * 0.05, ease: "easeOut" }}
-                className="border-t border-[#26364D] pt-6 first:pt-0 space-y-2"
-              >
-                <span className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5">
-                  {project.category || 'Software Project'}
-                </span>
-
-                <h3 className="text-lg font-semibold text-[#F1F5F9]">
-                  {project.title}
-                </h3>
-
-                <p className="text-sm text-[#A7B5C9] leading-relaxed">
-                  {project.description}
-                </p>
-
-                {project.highlights?.length > 0 && (
-                  <ul className="space-y-2">
-                    {project.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="flex items-start gap-2 text-xs text-[#A7B5C9]"
-                      >
-                        <span className="w-1.5 h-1.5 bg-[#60A5FA] shrink-0 mt-1.5" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.techStack?.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[11px] font-mono text-[#A7B5C9] border border-[#26364D] px-2 py-0.5"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-[#A5D8FF] hover:text-[#F1F5F9] active:translate-y-[1px] transition-all duration-200 pt-1"
-                  >
-                    View source code
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
-                )}
-              </motion.article>
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </section>
-  );
+        </section>
+    );
 }
