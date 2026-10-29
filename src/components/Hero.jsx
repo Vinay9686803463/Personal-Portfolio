@@ -1,25 +1,17 @@
-
-import { motion, useReducedMotion } from "framer-motion";
-
+import { motion } from "framer-motion";
 import {
+    ArrowDown,
+    ArrowUpRight,
+    Code2,
     Github,
     Linkedin,
     Mail,
-    ArrowRight,
-    Bot,
-    Layers,
-    MapPin,
-    CheckCircle2,
-    Cpu,
-    GraduationCap
+    Terminal,
 } from "lucide-react";
 
-import {
-    personalInfo,
-    projects
-} from "../data/portfolioData";
+import { personalInfo, projects } from "../data/portfolioData";
 
-const coreSkills = [
+const technologies = [
     "HTML",
     "CSS",
     "JavaScript",
@@ -27,314 +19,266 @@ const coreSkills = [
     "Flask",
     "SQL",
     "Git",
-    "GitHub"
+    "GitHub",
 ];
 
 export default function Hero() {
-    const shouldReduceMotion = useReducedMotion();
-
-    const openChatWidget = (event) => {
-        event.preventDefault();
-
-        const chatButton = document.getElementById(
-            "chat-toggle-btn"
-        );
-
-        if (chatButton) {
-            chatButton.click();
-        }
-    };
-
     return (
         <section
             id="about"
-            className="relative min-h-screen pt-32 pb-24 flex items-center justify-center bg-[#0B1220] overflow-hidden"
+            className="relative overflow-hidden border-b border-white/[0.07] bg-[#050711] text-white"
         >
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* Background decoration */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <div className="absolute -left-40 top-20 h-80 w-80 rounded-full bg-violet-600/[0.08] blur-[120px]" />
 
-                    {/* Left Column */}
-                    <motion.div
-                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: shouldReduceMotion ? 0 : 0.5, ease: "easeOut" }}
-                        className="lg:col-span-7 space-y-7 text-left"
-                    >
+                <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-indigo-600/[0.08] blur-[130px]" />
 
-                        {/* Academic Status */}
-                        <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#26364D] text-[#A7B5C9] text-xs font-mono">
-                            <span className="w-1.5 h-1.5 bg-[#60A5FA]" />
+                <div
+                    className="absolute inset-0 opacity-[0.035]"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(#a78bfa 1px, transparent 1px)",
+                        backgroundSize: "28px 28px",
+                    }}
+                />
+            </div>
 
-                            <span>
-                                B.Tech Computer Science Engineering Student
-                            </span>
-                        </div>
+            <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-28 lg:min-h-[570px] lg:grid-cols-2 lg:gap-12 lg:px-12">
+                {/* Left: Introduction */}
+                <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.65 }}
+                    className="relative z-10"
+                >
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-violet-400/20 bg-violet-400/[0.07] px-3 py-1.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
 
-                        {/* Profile Introduction */}
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-1">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+                            B.Tech CSE Student
+                        </span>
+                    </div>
 
-                            {/* Profile Initials */}
-                            <div className="relative shrink-0">
-                                <div className="border border-[#26364D] p-1">
-                                    <div className="w-24 h-24 sm:w-28 sm:h-28 bg-[#0F192B] flex items-center justify-center">
-                                        <span className="text-3xl sm:text-4xl font-editorial font-semibold text-[#A5D8FF]">
-                                            VS
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                    <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+                        Hi, I'm{" "}
+                        <span className="text-violet-400">
+                            Vinay
+                        </span>
+                        <br />
+                        <span className="mt-2 block text-white">
+                            I build things for the web.
+                        </span>
+                    </h1>
 
-                            {/* Name and Role */}
-                            <div className="space-y-1.5">
-                                <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider">
-                                    B.Tech CSE Student &bull; Web Developer
-                                </div>
+                    <p className="mt-6 max-w-lg text-sm leading-7 text-slate-400 sm:text-base">
+                        I'm a Computer Science student interested in building
+                        practical web applications, developing backend
+                        functionality, and working with databases to solve
+                        real-world problems.
+                    </p>
 
-                                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F1F5F9] tracking-tight leading-[1.12]">
-                                    Vinay{" "}
-                                    <span className="font-editorial italic font-normal text-[#A5D8FF]">
-                                        Sollapure
-                                    </span>
-                                </h1>
+                    {/* Primary actions */}
+                    <div className="mt-8 flex flex-wrap items-center gap-3">
+                        <a
+                            href="#projects"
+                            className="group inline-flex items-center gap-2 rounded-lg bg-violet-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-violet-500"
+                        >
+                            View My Work
 
-                                <div className="flex flex-wrap items-center gap-2 text-xs text-[#A7B5C9] font-mono">
-                                    <MapPin className="w-3.5 h-3.5 text-[#60A5FA]" />
+                            <ArrowUpRight
+                                size={16}
+                                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                            />
+                        </a>
 
-                                    <span>
-                                        {personalInfo.location}
-                                    </span>
+                        <a
+                            href="#contact"
+                            className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-violet-400/60 hover:bg-white/[0.04]"
+                        >
+                            <Mail size={16} />
+                            Contact Me
+                        </a>
+                    </div>
 
-                                    <span className="text-[#26364D]">
-                                        &bull;
-                                    </span>
+                    {/* Social links */}
+                    <div className="mt-7 flex items-center gap-4">
+                        <span className="text-xs text-slate-500">
+                            Find me on
+                        </span>
 
-                                    <span>
-                                        Computer Science Engineering
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        <a
+                            href={personalInfo.socials.github}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="GitHub profile"
+                            className="text-slate-400 transition-colors hover:text-white"
+                        >
+                            <Github size={19} />
+                        </a>
 
-                        {/* About Me */}
-                        <p className="text-[#A7B5C9] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
-                            I'm a B.Tech Computer Science and Engineering
-                            student at Aditya College of Engineering and
-                            Technology, Bengaluru. I enjoy building
-                            practical web applications using HTML, CSS,
-                            JavaScript, Python, Flask, and SQL.
-                            My focus is on developing reliable applications,
-                            improving my programming skills, and learning
-                            through real-world projects.
+                        <a
+                            href={personalInfo.socials.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="LinkedIn profile"
+                            className="text-slate-400 transition-colors hover:text-white"
+                        >
+                            <Linkedin size={19} />
+                        </a>
+
+                        <a
+                            href={`mailto:${personalInfo.email}`}
+                            aria-label="Send email"
+                            className="text-slate-400 transition-colors hover:text-white"
+                        >
+                            <Mail size={19} />
+                        </a>
+                    </div>
+
+                    {/* Technologies */}
+                    <div className="mt-10 border-t border-white/[0.08] pt-6">
+                        <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                            Technologies I work with
                         </p>
 
-                        {/* Action Buttons */}
-                        <div className="flex flex-wrap items-center gap-3 pt-2">
-
-                            <a
-                                href="#projects"
-                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-[#60A5FA] text-[#0B1220] hover:bg-[#A5D8FF] active:translate-y-[1px] transition-all duration-200"
-                            >
-                                <span>
-                                    View My Projects
+                        <div className="flex flex-wrap gap-2">
+                            {technologies.map((technology) => (
+                                <span
+                                    key={technology}
+                                    className="rounded-md border border-white/[0.09] bg-white/[0.025] px-3 py-1.5 text-xs text-slate-300 transition-colors hover:border-violet-400/40 hover:text-violet-300"
+                                >
+                                    {technology}
                                 </span>
-
-                                <ArrowRight className="w-4 h-4" />
-                            </a>
-
-                            <a
-                                href="#contact"
-                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium border border-[#26364D] text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200"
-                            >
-                                <span>
-                                    Get In Touch
-                                </span>
-                            </a>
-
-                            <a
-                                href="#chat-widget"
-                                onClick={openChatWidget}
-                                className="px-3 py-2 text-xs font-medium border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 active:translate-y-[1px] transition-all duration-200 flex items-center gap-2"
-                                title="Open Portfolio Assistant"
-                            >
-                                <Bot className="w-4 h-4 text-[#60A5FA]" />
-
-                                <span className="hidden sm:inline">
-                                    Ask Assistant
-                                </span>
-                            </a>
+                            ))}
                         </div>
+                    </div>
+                </motion.div>
 
-                        {/* Core Skills */}
-                        <div className="pt-4 border-t border-[#26364D]">
-                            <span className="text-[11px] font-mono uppercase tracking-wider text-[#A7B5C9] block mb-2">
-                                Core Competencies
-                            </span>
+                {/* Right: Photo area — add your own image manually later */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.15 }}
+                    className="relative mx-auto flex w-full max-w-lg items-center justify-center"
+                >
+                    {/* Decorative glow behind the future photo */}
+                    <div className="absolute h-64 w-64 rounded-full bg-violet-600/20 blur-[90px] sm:h-80 sm:w-80" />
 
-                            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#A7B5C9]">
-                                {coreSkills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-2 py-0.5 border border-[#26364D]"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Social Links */}
-                        <div className="flex items-center gap-3 pt-1 text-xs text-[#A7B5C9]">
-
-                            <span className="font-mono">
-                                Connect:
-                            </span>
-
-                            <a
-                                href={personalInfo.socials.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
-                                title="GitHub"
-                                aria-label="GitHub profile"
-                            >
-                                <Github className="w-4 h-4" />
-                            </a>
-
-                            <a
-                                href={personalInfo.socials.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
-                                title="LinkedIn"
-                                aria-label="LinkedIn profile"
-                            >
-                                <Linkedin className="w-4 h-4" />
-                            </a>
-
-                            <a
-                                href={`mailto:${personalInfo.email}`}
-                                className="p-1.5 border border-[#26364D] text-[#A7B5C9] hover:text-[#F1F5F9] hover:border-[#60A5FA]/70 transition-colors"
-                                title="Email"
-                                aria-label="Send email"
-                            >
-                                <Mail className="w-4 h-4" />
-                            </a>
-
-                        </div>
-
-                    </motion.div>
-
-                    {/* Right Column */}
-                    <motion.div
-                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: shouldReduceMotion ? 0 : 0.55,
-                            delay: shouldReduceMotion ? 0 : 0.12,
-                            ease: "easeOut"
-                        }}
-                        className="lg:col-span-5"
+                    {/* PHOTO SLOT: Add your image here when ready. */}
+                    <div
+                        id="hero-photo-slot"
+                        className="relative flex aspect-[4/5] w-full max-w-[390px] items-center justify-center"
+                        aria-label="Reserved space for your profile photo"
                     >
+                        {/*
+                            Your photo will go here.
 
-                        <div className="border border-[#26364D] p-6 sm:p-7 space-y-6 bg-[#0F192B]">
+                            Example:
+                            <img
+                                src="/images/your-photo.png"
+                                alt="Vinay Sollapure"
+                                className="h-full w-full object-cover"
+                            />
+                        */}
 
-                            {/* Overview Header */}
-                            <div className="flex items-center justify-between pb-3 border-b border-[#26364D]">
+                        {/* Subtle decoration while the photo area is empty */}
+                        <div className="absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-400/30 to-transparent" />
 
+                        <div className="absolute right-2 top-12 h-24 w-24 opacity-30">
+                            <div
+                                className="h-full w-full"
+                                style={{
+                                    backgroundImage:
+                                        "radial-gradient(#a78bfa 1px, transparent 1px)",
+                                    backgroundSize: "9px 9px",
+                                }}
+                            />
+                        </div>
+
+                        {/* Floating code card */}
+                        <div className="absolute bottom-10 right-0 z-10 w-52 rounded-xl border border-white/10 bg-[#10121f]/95 p-4 shadow-2xl shadow-black/30 backdrop-blur sm:-right-3">
+                            <div className="mb-4 flex items-center justify-between border-b border-white/[0.08] pb-3">
                                 <div className="flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-[#60A5FA]" />
+                                    <Terminal
+                                        size={15}
+                                        className="text-violet-400"
+                                    />
 
-                                    <span className="text-xs font-mono uppercase tracking-wider text-[#F1F5F9]">
-                                        Developer Overview
+                                    <span className="text-xs text-slate-300">
+                                        developer.js
                                     </span>
                                 </div>
 
-                                <span className="text-[11px] font-mono text-[#A7B5C9]">
-                                    2026
-                                </span>
-
+                                <span className="h-2 w-2 rounded-full bg-emerald-400" />
                             </div>
 
-                            {/* Development Areas */}
-                            <div className="grid grid-cols-1 divide-y divide-[#26364D]">
-                                {/* Frontend */}
-                                <div className="py-4 first:pt-0 last:pb-0 space-y-1">
-                                    <div className="flex items-center justify-between gap-2 text-sm">
-                                        <span className="text-[#F1F5F9] flex items-center gap-2">
-                                            <Layers className="w-4 h-4 text-[#60A5FA]" />
-                                            Frontend Development
-                                        </span>
-                                        <span className="text-[11px] font-mono text-[#A7B5C9]">
-                                            HTML / CSS / JS
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-[#A7B5C9] leading-relaxed pl-6">
-                                        Building responsive web interfaces with semantic HTML, modern CSS, and interactive JavaScript.
-                                    </p>
-                                </div>
+                            <div className="space-y-2 font-mono text-[10px] leading-relaxed">
+                                <p className="text-violet-300">
+                                    const developer = {"{"}
+                                </p>
 
-                                {/* Backend */}
-                                <div className="py-4 first:pt-0 last:pb-0 space-y-1">
-                                    <div className="flex items-center justify-between gap-2 text-sm">
-                                        <span className="text-[#F1F5F9] flex items-center gap-2">
-                                            <Cpu className="w-4 h-4 text-[#60A5FA]" />
-                                            Backend Development
-                                        </span>
-                                        <span className="text-[11px] font-mono text-[#A7B5C9]">
-                                            Python / Flask
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-[#A7B5C9] leading-relaxed pl-6">
-                                        Developing web applications, server-side functionality, and database-connected features using Python and Flask.
-                                    </p>
-                                </div>
+                                <p className="pl-3 text-slate-400">
+                                    name:{" "}
+                                    <span className="text-amber-200">
+                                        "Vinay"
+                                    </span>
+                                    ,
+                                </p>
 
-                                {/* Database */}
-                                <div className="py-4 first:pt-0 last:pb-0 space-y-1">
-                                    <div className="flex items-center justify-between gap-2 text-sm">
-                                        <span className="text-[#F1F5F9] flex items-center gap-2">
-                                            <CheckCircle2 className="w-4 h-4 text-[#60A5FA]" />
-                                            Database & Tools
-                                        </span>
-                                        <span className="text-[11px] font-mono text-[#A7B5C9]">
-                                            SQL / Git
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-[#A7B5C9] leading-relaxed pl-6">
-                                        Working with relational databases, version control, GitHub, and application deployment workflows.
-                                    </p>
-                                </div>
+                                <p className="pl-3 text-slate-400">
+                                    role:{" "}
+                                    <span className="text-amber-200">
+                                        "CSE Student"
+                                    </span>
+                                    ,
+                                </p>
+
+                                <p className="pl-3 text-slate-400">
+                                    skills:{" "}
+                                    <span className="text-emerald-300">
+                                        ["Python", "Flask"]
+                                    </span>
+                                </p>
+
+                                <p className="text-violet-300">
+                                    {"}"};
+                                </p>
                             </div>
-
-                            {/* Portfolio Information */}
-                            <div className="grid grid-cols-2 divide-x divide-[#26364D] border-t border-[#26364D] pt-4">
-                                <div className="pr-4">
-                                    <div className="text-2xl font-bold font-editorial text-[#F1F5F9]">
-                                        {projects.length}
-                                    </div>
-                                    <div className="text-[11px] font-mono text-[#A7B5C9]">
-                                        Featured Projects
-                                    </div>
-                                </div>
-                                <div className="pl-4">
-                                    <div className="flex items-center gap-2 text-[#A5D8FF]">
-                                        <GraduationCap className="w-5 h-5" />
-                                        <span className="text-lg font-bold font-editorial">
-                                            B.Tech
-                                        </span>
-                                    </div>
-                                    <div className="text-[11px] font-mono text-[#A7B5C9]">
-                                        CSE Student
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
-                    </motion.div>
+                        {/* Project count card */}
+                        <div className="absolute left-0 top-16 z-10 rounded-xl border border-white/10 bg-[#10121f]/95 p-4 shadow-xl backdrop-blur sm:-left-2">
+                            <div className="flex items-center gap-3">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/15 text-violet-300">
+                                    <Code2 size={19} />
+                                </div>
 
-                </div>
+                                <div>
+                                    <p className="text-lg font-semibold text-white">
+                                        {projects.length}
+                                    </p>
+
+                                    <p className="text-[10px] text-slate-400">
+                                        Featured Projects
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
+
+            {/* Scroll indicator */}
+            <a
+                href="#skills"
+                aria-label="Scroll to skills"
+                className="relative mx-auto mb-6 flex w-fit items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-slate-500 transition-colors hover:text-violet-300"
+            >
+                Explore more
+
+                <ArrowDown size={13} />
+            </a>
         </section>
     );
 }
