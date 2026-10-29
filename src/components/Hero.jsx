@@ -119,31 +119,77 @@ export default function Hero() {
                     transition={{ duration: shouldReduceMotion ? 0 : 0.7, delay: shouldReduceMotion ? 0 : 0.12, ease: "easeOut" }}
                     className="relative mx-auto flex w-full max-w-lg items-center justify-center"
                 >
-                    <div className="absolute h-72 w-72 rounded-full bg-violet-600/20 blur-[100px]" />
-                    <div
-                        id="hero-photo-slot"
-                        className="relative flex aspect-[4/5] w-full max-w-[380px] items-center justify-center overflow-hidden rounded-xl border border-white/[0.1] bg-gradient-to-b from-white/[0.01] to-white/[0.005]"
-                        aria-label="Reserved space for your profile photo"
-                    >
-                        {/* 
-                          PHOTO INSERTION POINT
-                          Add your own photo manually here later. 
-                          Example:
-                          <img src="/images/your-photo.jpg" alt="Vinay Sollapure" className="h-full w-full object-cover" />
-                        */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500">
-                                Photo Slot
-                            </span>
-                            <span className="mt-2 text-xs text-slate-600">
-                                Insert your image manually
-                            </span>
-                        </div>
-                        <div className="absolute bottom-6 left-6 right-6">
-                            <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-[#10121f]/95 px-3 py-2 shadow-lg shadow-black/30 backdrop-blur">
-                                <Code2 size={16} className="text-violet-300" />
-                                <span className="text-xs text-slate-300">console.log("Building for the web")</span>
+                    <div className="absolute -right-6 top-6 hidden h-24 w-24 opacity-40 lg:block">
+                        <div
+                            className="h-full w-full"
+                            style={{
+                                backgroundImage: "radial-gradient(#a78bfa 1px, transparent 1px)",
+                                backgroundSize: "8px 8px"
+                            }}
+                        />
+                    </div>
+
+                    <div className="relative">
+                        <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/30 blur-[90px] sm:h-[320px] sm:w-[320px] lg:h-[340px] lg:w-[340px]" />
+                        <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d4ce3] sm:h-[300px] sm:w-[300px] lg:h-[320px] lg:w-[320px]" />
+
+                        <div className="relative h-[230px] w-[230px] sm:h-[270px] sm:w-[270px] lg:h-[290px] lg:w-[290px]">
+                            {/* PORTRAIT LAYER - Empty until you add your own photo */}
+                            <div
+                                id="hero-portrait-layer"
+                                className="absolute inset-0"
+                                aria-label="Empty portrait area"
+                            >
+                                {/*
+                                  MANUAL PHOTO INSERTION:
+                                  Add your own photo here when ready. Example:
+                                  <img
+                                      src="/images/your-photo.png"
+                                      alt="Vinay Sollapure"
+                                      className="absolute inset-0 h-full w-full object-contain"
+                                      style={{ position: "absolute", height: "100%", width: "100%", objectFit: "contain" }}
+                                  />
+                                */}
                             </div>
+                        </div>
+
+                        <div className="absolute -bottom-6 -right-4 sm:-bottom-4 sm:-right-6 lg:-right-10">
+                            <div className="rounded-lg border border-white/10 bg-[#10121f] px-4 py-3 shadow-[0_30px_60px_-40px_rgba(121,87,246,1)]">
+                                <div className="mb-2 flex items-center gap-2">
+                                    <Code2 size={16} className="text-violet-300" />
+                                    <span className="text-xs font-medium text-white">Code</span>
+                                    <span className="ml-1 h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                                </div>
+                                <div className="font-mono text-[11px] leading-relaxed text-slate-400">
+                                    <div>
+                                        <span className="text-violet-300">const</span>{" "}
+                                        <span className="text-sky-300">dev</span>{" "}
+                                        <span className="text-slate-400">=</span>{" "}
+                                        <span className="text-amber-200">{"{"}</span>
+                                    </div>
+                                    <div className="pl-3">
+                                        <span className="text-sky-300">name</span>
+                                        <span className="text-slate-400">:</span>{" "}
+                                        <span className="text-emerald-300">"Vinay"</span>
+                                        <span className="text-slate-400">,</span>
+                                    </div>
+                                    <div className="pl-3">
+                                        <span className="text-sky-300">role</span>
+                                        <span className="text-slate-400">:</span>{" "}
+                                        <span className="text-emerald-300">"Web Developer"</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-amber-200">{"}"}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="absolute -top-10 left-6 hidden sm:block">
+                            <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 19C6.33333 14.6667 19 5.2 39 1" stroke="rgba(167, 139, 250, 0.4)" strokeWidth="1" strokeLinecap="round" strokeDasharray="2 4" />
+                                <path d="M34 1L39 1L38 6" stroke="rgba(167, 139, 250, 0.4)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
                         </div>
                     </div>
                 </motion.div>
