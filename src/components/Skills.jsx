@@ -18,8 +18,6 @@ const skillData = [
     { name: "Python", icon: SiPython, color: "#3776AB" },
     { name: "Flask", icon: SiFlask, color: "#FFFFFF" },
     { name: "SQL", icon: VscDatabase, color: "#336791" },
-    { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
-    { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
     { name: "Git", icon: SiGit, color: "#F05032" },
     { name: "GitHub", icon: SiGithub, color: "#FFFFFF" }
 ];
@@ -36,8 +34,8 @@ export default function Skills() {
     const shouldReduceMotion = useReducedMotion();
     const columns = [
         skillData.slice(0, 3),
-        skillData.slice(3, 7),
-        skillData.slice(7, 10)
+        skillData.slice(3, 6),
+        skillData.slice(6, 8)
     ];
 
     return (
@@ -48,7 +46,7 @@ export default function Skills() {
                         MY SKILLS
                     </p>
                     <h2 className="text-2xl font-semibold tracking-tight text-[#F4F5FA] sm:text-3xl md:text-4xl">
-                        Technologies I Master
+                        Technologies I Work With
                     </h2>
                 </div>
 
