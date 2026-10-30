@@ -78,7 +78,7 @@ export const education = {
     university: "Visvesvaraya Technological University (VTU)",
     status: "Pursuing",
     details:
-        "Currently pursuing a B.Tech in Computer Science and Engineering, with an interest in web development, backend systems, and practical software projects."
+        "Currently pursuing a 3rd year of B.Tech in Computer Science and Engineering, with an interest in web development, backend systems, and practical software projects."
 };
 
 export const chatbotPresets = [

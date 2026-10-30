@@ -53,55 +53,23 @@ export default function Footer() {
                                 <span>LinkedIn</span>
                             </a>
                         </div>
-
-                        <div className="mt-8">
-                            <p className="text-sm font-medium text-white">Connect</p>
-                            <ul className="mt-3 flex flex-wrap items-center gap-4 text-sm text-slate-400">
-                                <li>
-                                    <a href={`mailto:${personalInfo.email}`} className="hover:text-white">
-                                        {personalInfo.email}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href={personalInfo.socials.github} target="_blank" rel="noreferrer" className="hover:text-white">
-                                        GitHub
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href={personalInfo.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-white">
-                                        LinkedIn
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="mt-6">
-                            <p className="text-sm font-medium text-white">Navigation</p>
-                            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400">
-                                <a href="#about" className="hover:text-white">Home</a>
-                                <a href="#skills" className="hover:text-white">Skills</a>
-                                <a href="#projects" className="hover:text-white">Projects</a>
-                                <a href="#education" className="hover:text-white">Education</a>
-                                <a href="#contact" className="hover:text-white">Contact</a>
-                            </div>
-                        </div>
                     </div>
 
-                    <div className="lg:col-span-4" />
+                    <div className="flex items-center justify-start lg:col-span-4 lg:justify-end">
+                        <button
+                            type="button"
+                            onClick={scrollToTop}
+                            aria-label="Scroll to top"
+                            className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.02] px-4 py-2 text-sm text-slate-200 transition-colors hover:border-violet-400/60 hover:text-white"
+                        >
+                            <ArrowUp size={16} aria-hidden="true" />
+                            <span>Back to top</span>
+                        </button>
+                    </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.08] py-6 sm:flex-row">
-                    <p className="text-sm text-slate-500">
-                        © {year} {personalInfo.name}. All rights reserved.
-                    </p>
-                    <button
-                        type="button"
-                        onClick={scrollToTop}
-                        className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
-                    >
-                        Back to top
-                        <ArrowUp size={16} />
-                    </button>
+                <div className="flex items-center justify-center border-t border-white/[0.08] py-4 text-[11px] text-slate-400">
+                    © {year} {personalInfo.name}
                 </div>
             </div>
         </footer>
