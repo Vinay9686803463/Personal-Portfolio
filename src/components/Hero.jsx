@@ -3,7 +3,6 @@ import { ArrowUpRight, Code2, Github, Linkedin, Mail } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 import {
     SiHtml5,
-    SiCss3,
     SiJavascript,
     SiPython,
     SiFlask,
@@ -12,9 +11,27 @@ import {
 } from "react-icons/si";
 import { VscDatabase } from "react-icons/vsc";
 
+const CssLogo = () => (
+    <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        <path d="M3 2L5 20L12 22L19 20L21 2H3Z" fill="#1572B6" />
+        <path d="M12 4H18.5L18 9H12V4Z" fill="#33A9DC" />
+        <path
+            d="M12 13H16L15.5 17L12 18.2L8.5 17L8.25 15H10.5L10.6 15.8L12 16.2L13.4 15.8L13.6 14H8.1L7.6 9H12V13Z"
+            fill="#FFFFFF"
+        />
+    </svg>
+);
+
 const technologies = [
     { name: "HTML", Icon: SiHtml5, color: "#E34F26" },
-    { name: "CSS", Icon: SiCss3, color: "#1572B6" },
+    { name: "CSS", Icon: CssLogo, color: "#1572B6" },
     { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
     { name: "Python", Icon: SiPython, color: "#3776AB" },
     { name: "Flask", Icon: SiFlask, color: "#FFFFFF" },
@@ -57,10 +74,10 @@ export default function Hero() {
                         </span>
                     </div>
 
-                    <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-                        <span className="block">Hi, I'm</span>
-                        <span className="block text-violet-400">Vinay</span>
-                        <span className="mt-1 block text-white">I build things for the web.</span>
+                    <h1 className="text-2xl font-bold leading-tight tracking-tight whitespace-nowrap sm:text-3xl lg:text-4xl">
+                        <span>Hi, I'm</span>{" "}
+                        <span className="text-violet-400">Vinay</span>{" "}
+                        <span className="text-white">I build things for the web.</span>
                     </h1>
 
                     <p className="mt-6 max-w-lg text-sm leading-7 text-slate-400 sm:text-base">
@@ -120,14 +137,21 @@ export default function Hero() {
                             Technologies I Work With
                         </p>
                         <div className="flex flex-wrap gap-2">
-                            {technologies.map((technology) => (
-                                <span
-                                    key={technology}
-                                    className="rounded-md border border-white/[0.09] bg-white/[0.015] px-3 py-1 text-xs text-slate-300 transition-colors hover:border-violet-400/40 hover:text-violet-300"
-                                >
-                                    {technology}
-                                </span>
-                            ))}
+                           
+{technologies.map(({ name, Icon, color }) => (
+    <span
+        key={name}
+        className="inline-flex items-center gap-2 rounded-md border border-white/[0.09] bg-white/[0.015] px-3 py-1 text-xs text-slate-300 transition-colors hover:border-violet-400/40 hover:text-violet-300"
+    >
+        <Icon
+            size={16}
+            color={color}
+            aria-hidden="true"
+        />
+        <span>{name}</span>
+    </span>
+))}
+
                         </div>
                     </div>
                 </motion.div>
