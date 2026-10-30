@@ -25,7 +25,7 @@ export default function Experience() {
                 </div>
 
                 {/* Education Cards */}
-                <div className="flex flex-col items-start gap-4">
+                <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
                     {education.map((item, index) => {
                         const isCompleted =
                             item.status?.toLowerCase() === "completed";
@@ -53,7 +53,7 @@ export default function Experience() {
                                     delay: shouldReduceMotion ? 0 : index * 0.1,
                                     ease: "easeOut",
                                 }}
-                                className="group relative w-full max-w-md overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f] transition-colors hover:border-violet-400/60"
+                                className="group relative h-full w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f] transition-colors hover:border-violet-400/60"
                             >
                                 {/* Top Violet Gradient */}
                                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />
