@@ -18,32 +18,45 @@ export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("about");
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(globalThis.scrollY > 20);
-            const scrollPosition = globalThis.scrollY + 260;
+    
+useEffect(() => {
+    const handleScroll = () => {
+        setScrolled(globalThis.scrollY > 20);
 
-            for (const item of navItems) {
-                const sectionId = item.href.substring(1);
-                const section = document.getElementById(sectionId);
+        const atBottom =
+            globalThis.innerHeight + globalThis.scrollY >=
+            document.documentElement.scrollHeight - 10;
 
-                if (!section) continue;
+        if (atBottom) {
+            setActiveSection("contact");
+            return;
+        }
 
-                const top = section.offsetTop;
-                const bottom = top + section.offsetHeight;
+        let currentSection = "about";
 
-                if (scrollPosition >= top && scrollPosition < bottom) {
-                    setActiveSection(sectionId);
-                    break;
-                }
+        for (const item of navItems) {
+            const sectionId = item.href.substring(1);
+            const section = document.getElementById(sectionId);
+
+            if (section && section.getBoundingClientRect().top <= 160) {
+                currentSection = sectionId;
             }
-        };
+        }
 
-        handleScroll();
-        globalThis.addEventListener("scroll", handleScroll, { passive: true });
+        setActiveSection(currentSection);
+    };
 
-        return () => globalThis.removeEventListener("scroll", handleScroll);
-    }, []);
+    handleScroll();
+
+    globalThis.addEventListener("scroll", handleScroll, { passive: true });
+    globalThis.addEventListener("resize", handleScroll);
+
+    return () => {
+        globalThis.removeEventListener("scroll", handleScroll);
+        globalThis.removeEventListener("resize", handleScroll);
+    };
+}, []);
+
 
     const closeMobileMenu = () => setMobileMenuOpen(false);
 
