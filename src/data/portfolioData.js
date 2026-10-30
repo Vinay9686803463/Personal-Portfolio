@@ -71,15 +71,27 @@ export const projects = [
 export const experienceTimeline = [];
 
 
-export const education = {
-    degree: "B.Tech in Computer Science and Engineering",
-    institution: "Aditya College of Engineering and Technology, Bengaluru",
-    location: "Bengaluru, Karnataka",
-    university: "Visvesvaraya Technological University (VTU)",
-    status: "Pursuing",
-    details:
-        "Currently pursuing a 3rd year of B.Tech in Computer Science and Engineering, with an interest in web development, backend systems, and practical software projects."
-};
+export const education = [
+    {
+        degree: "PUC in Science (PCMB)",
+        institution: "CLE PU College Chikkodi",
+        location: "Chikkodi, Karnataka",
+        university: "Karnata State Board",
+        status: "Completed",
+        details:
+            "I have completed my Pre-University Course (PUC) in Science in 2024, with a focus on Physics, Chemistry, Mathematics, and Biology (PCMB). This laid the foundation for my interest in technology and problem-solving."
+    },
+    {
+        degree: "B.Tech in Computer Science and Engineering",
+        institution: "Aditya College of Engineering and Technology, Bengaluru",
+        location: "Bengaluru, Karnataka",
+        university: "Visvesvaraya Technological University (VTU)",
+        status: "Pursuing",
+        details:
+            "Currently pursuing a 3rd year of B.Tech in Computer Science and Engineering, with an interest in web development, backend systems, and practical software projects."
+    }
+];
+
 
 export const chatbotPresets = [
   "Skills",
@@ -109,7 +121,9 @@ export function queryChatbotResponse(query) {
     text.includes("college") ||
     text.includes("degree")
   ) {
-    return `${education.degree} at ${education.institution}.`;
+        return education
+            .map((item) => `${item.degree} at ${item.institution}.`)
+            .join("\n");
   }
 
   if (
