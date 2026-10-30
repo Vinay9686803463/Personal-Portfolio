@@ -53,7 +53,7 @@ export default function Skills() {
             className="relative border-b border-white/[0.07] bg-[#050711] py-16 sm:py-20"
         >
             <div className="mx-auto max-w-6xl px-6 sm:px-10">
-                <div className="mb-10 text-center">
+                <div className="mb-10 text-left">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.4em] text-violet-300">
                         MY SKILLS
                     </p>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, Mail, Github, Code2, ArrowUpRight } from "lucide-react";
+import { Menu, X, Mail, Github, Code2, ArrowUpRight, Bot } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 
 const navItems = [
@@ -12,7 +12,7 @@ const navItems = [
     { label: "Contact", href: "#contact" }
 ];
 
-export default function Navbar() {
+export default function Navbar({ onOpenChat }) {
     useReducedMotion();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -104,10 +104,18 @@ useEffect(() => {
                 </nav>
 
                 <div className="hidden items-center gap-2 lg:flex">
+                    <button
+                        type="button"
+                        onClick={onOpenChat}
+                        className="inline-flex items-center gap-2 rounded-full border border-violet-400/40 bg-violet-400/10 px-4 py-2 text-sm font-medium text-violet-200 transition-colors hover:bg-violet-400/20"
+                    >
+                        <Bot size={16} />
+                        Ask AI Assistant
+                    </button>
                     <a
                         href={personalInfo.socials.github}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         aria-label="GitHub"
                         className="p-2 text-slate-400 transition-colors hover:text-white"
                     >
@@ -163,19 +171,33 @@ useEffect(() => {
                                 </a>
                             ))}
                         </nav>
-                        <div className="mt-3 flex flex-wrap items-center gap-3 border-t border-white/[0.08] pt-3">
+                        <div className="mt-3 flex flex-col gap-2 border-t border-white/[0.08] pt-3">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    closeMobileMenu();
+                                    if (onOpenChat) {
+                                        onOpenChat();
+                                    }
+                                }}
+                                className="inline-flex items-center gap-2 px-2 py-2 text-sm text-slate-300 hover:text-white"
+                            >
+                                <Bot size={16} />
+                                Ask AI Assistant
+                            </button>
                             <a
                                 href={personalInfo.socials.github}
                                 target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white"
+                                rel="noreferrer noopener"
+                                aria-label="GitHub"
+                                className="inline-flex items-center gap-2 px-2 py-2 text-sm text-slate-300 hover:text-white"
                             >
                                 <Github size={16} />
                                 GitHub
                             </a>
                             <a
                                 href={`mailto:${personalInfo.email}`}
-                                className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white"
+                                className="inline-flex items-center gap-2 px-2 py-2 text-sm text-slate-300 hover:text-white"
                             >
                                 <Mail size={16} />
                                 Email
@@ -183,7 +205,7 @@ useEffect(() => {
                             <a
                                 href="#contact"
                                 onClick={closeMobileMenu}
-                                className="ml-auto inline-flex items-center gap-2 rounded-md bg-violet-600 px-4 py-2 text-sm font-medium text-white"
+                                className="mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-violet-600 px-4 py-2 text-sm font-medium text-white"
                             >
                                 Hire Me
                             </a>

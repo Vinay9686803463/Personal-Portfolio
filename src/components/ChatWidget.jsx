@@ -3,9 +3,27 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Bot, X, Send } from "lucide-react";
 import { personalInfo, chatbotPresets, queryChatbotResponse } from "../data/portfolioData";
 
-export default function ChatWidget() {
+export default function ChatWidget({ isOpen: controlledIsOpen, onOpen, onClose, onToggle } = {}) {
     const shouldReduceMotion = useReducedMotion();
-    const [isOpen, setIsOpen] = useState(false);
+    const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
+    const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : uncontrolledIsOpen;
+    const setIsOpen = (value) => {
+        if (controlledIsOpen !== undefined) {
+            if (typeof value === "function") {
+                const nextValue = value(isOpen);
+                if (nextValue && onOpen) onOpen();
+                else if (!nextValue && onClose) onClose();
+            } else {
+                if (value && onOpen) onOpen();
+                else if (!value && onClose) onClose();
+            }
+            if (onToggle && typeof value !== "function") {
+                // allow toggle to be driven externally
+            }
+            return;
+        }
+        setUncontrolledIsOpen(value);
+    };
     const [input, setInput] = useState("");
 
     const [messages, setMessages] = useState([

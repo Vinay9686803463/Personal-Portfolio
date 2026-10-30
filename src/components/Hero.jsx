@@ -1,5 +1,6 @@
+import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Code2, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Code2, Github, Linkedin, Mail, Camera, Upload, Trash2 } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 import {
     SiHtml5,
@@ -42,6 +43,35 @@ const technologies = [
 
 export default function Hero() {
     const shouldReduceMotion = useReducedMotion();
+    const fileInputRef = useRef(null);
+    const [profileImage, setProfileImage] = useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleFileSelect = (event) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            event.target.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            setProfileImage(e.target?.result);
+            setMenuOpen(false);
+        };
+        reader.readAsDataURL(file);
+        event.target.value = "";
+    };
+
+    const handleRemovePhoto = () => {
+        setProfileImage(null);
+        setMenuOpen(false);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+        }
+    };
 
     return (
         <section
@@ -173,27 +203,83 @@ export default function Hero() {
                     </div>
 
                     <div className="relative">
-                        <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/30 blur-[90px] sm:h-[320px] sm:w-[320px] lg:h-[340px] lg:w-[340px]" />
-                        <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d4ce3] sm:h-[300px] sm:w-[300px] lg:h-[320px] lg:w-[320px]" />
+                        <div className="absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/30 blur-[90px] sm:h-[250px] sm:w-[250px] lg:h-[270px] lg:w-[270px]" />
+                        <div className="absolute left-1/2 top-1/2 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d4ce3] sm:h-[230px] sm:w-[230px] lg:h-[250px] lg:w-[250px]" />
 
-                        <div className="relative h-[230px] w-[230px] sm:h-[270px] sm:w-[270px] lg:h-[290px] lg:w-[290px]">
-                            {/* PORTRAIT LAYER - Empty until you add your own photo */}
+                        <div className="relative h-[180px] w-[180px] sm:h-[210px] sm:w-[210px] lg:h-[230px] lg:w-[230px]">
                             <div
-                                id="hero-portrait-layer"
-                                className="absolute inset-0"
-                                aria-label="Empty portrait area"
+                                className="relative h-full w-full overflow-hidden rounded-full"
+                                onMouseEnter={() => setMenuOpen(true)}
+                                onMouseLeave={() => setMenuOpen(false)}
                             >
-                                {/*
-                                  MANUAL PHOTO INSERTION:
-                                  Add your own photo here when ready. Example:
-                                  <img
-                                      src="/images/your-photo.png"
-                                      alt="Vinay Sollapure"
-                                      className="absolute inset-0 h-full w-full object-contain"
-                                      style={{ position: "absolute", height: "100%", width: "100%", objectFit: "contain" }}
-                                  />
-                                */}
+                                <button
+                                    type="button"
+                                    className="relative h-full w-full overflow-hidden rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+                                    onClick={() => setMenuOpen((prev) => !prev)}
+                                    aria-haspopup="menu"
+                                    aria-expanded={menuOpen}
+                                    aria-label="Profile photo options"
+                                >
+                                    <div
+                                        id="hero-portrait-layer"
+                                        className="absolute inset-0 h-full w-full rounded-full"
+                                        aria-label="Profile photo"
+                                    >
+                                        {profileImage ? (
+                                            <img
+                                                src={profileImage}
+                                                alt="Vinay Sollapure"
+                                                className="h-full w-full rounded-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="flex h-full w-full items-center justify-center rounded-full" />
+                                        )}
+                                    </div>
+                                </button>
+
+                                {menuOpen && (
+                                    <div
+                                        role="menu"
+                                        aria-label="Photo options"
+                                        className="absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-full bg-black/70 p-2 text-center"
+                                    >
+                                        <button
+                                            type="button"
+                                            role="menuitem"
+                                            onClick={() => fileInputRef.current?.click()}
+                                            className="flex w-full items-center justify-center gap-1.5 rounded-full px-2 py-1 text-[10px] text-white hover:bg-white/10"
+                                        >
+                                            <Camera size={12} />
+                                            Change Photo
+                                        </button>
+                                        <button
+                                            type="button"
+                                            role="menuitem"
+                                            onClick={() => fileInputRef.current?.click()}
+                                            className="flex w-full items-center justify-center gap-1.5 rounded-full px-2 py-1 text-[10px] text-white hover:bg-white/10"
+                                        >
+                                            <Upload size={12} />
+                                            Upload Photo
+                                        </button>
+                                        <button
+                                            type="button"
+                                            role="menuitem"
+                                            onClick={handleRemovePhoto}
+                                            className="flex w-full items-center justify-center gap-1.5 rounded-full px-2 py-1 text-[10px] text-white hover:bg-white/10"
+                                        >
+                                            <Trash2 size={12} />
+                                            Remove Photo
+                                        </button>
+                                    </div>
+                                )}
                             </div>
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={handleFileSelect}
+                            />
                         </div>
 
                         <div className="absolute -bottom-6 -right-4 sm:-bottom-4 sm:-right-6 lg:-right-10">
