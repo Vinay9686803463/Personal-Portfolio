@@ -16,7 +16,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 gap-10 border-t border-white/[0.08] py-12 lg:grid-cols-12 lg:gap-10">
                     <div className="lg:col-span-8">
                         <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
-                            Let's Work Together
+                            Contact Me
                         </p>
                         <h2 className="text-sm font-semibold tracking-tight sm:text-base lg:whitespace-nowrap lg:text-base xl:text-lg">
                             I'm open to discussing projects, collaborating on ideas, and connecting with other developers.
