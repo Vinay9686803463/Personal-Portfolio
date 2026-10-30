@@ -1,8 +1,27 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Code2, Github, Linkedin, Mail } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
+import {
+    SiHtml5,
+    SiCss3,
+    SiJavascript,
+    SiPython,
+    SiFlask,
+    SiGit,
+    SiGithub
+} from "react-icons/si";
+import { VscDatabase } from "react-icons/vsc";
 
-const technologies = ["HTML", "CSS", "JavaScript", "Python", "Flask", "SQL", "Git", "GitHub"];
+const technologies = [
+    { name: "HTML", Icon: SiHtml5, color: "#E34F26" },
+    { name: "CSS", Icon: SiCss3, color: "#1572B6" },
+    { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+    { name: "Python", Icon: SiPython, color: "#3776AB" },
+    { name: "Flask", Icon: SiFlask, color: "#FFFFFF" },
+    { name: "SQL", Icon: VscDatabase, color: "#336791" },
+    { name: "Git", Icon: SiGit, color: "#F05032" },
+    { name: "GitHub", Icon: SiGithub, color: "#FFFFFF" }
+];
 
 export default function Hero() {
     const shouldReduceMotion = useReducedMotion();
