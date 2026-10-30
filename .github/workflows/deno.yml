@@ -38,9 +38,5 @@ jobs:
       - name: Run linter
         run: deno lint
 
-            # Uncomment this step to verify the use of 'deno fmt' on each commit.
-      # - name: Verify formatting
-      #   run: deno fmt --check
-
-      - name: Run linter
-        run: deno lint
+      - - name: Run Deno lint
+          run: deno lint
