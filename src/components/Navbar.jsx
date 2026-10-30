@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, Mail, Github, Code2 } from "lucide-react";
+import { Menu, X, Mail, Github, Code2, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 
 const navItems = [
     { label: "Home", href: "#about" },
     { label: "About", href: "#about-details" },
-    { label: "Skills", href: "#skills" },
+    { label: "Services", href: "#skills" },
     { label: "Projects", href: "#projects" },
-    { label: "Education", href: "#education" },
+    { label: "Blog", href: "#education" },
     { label: "Contact", href: "#contact" }
 ];
 
@@ -50,14 +50,14 @@ export default function Navbar() {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
             <div
-                className={`mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-lg border border-white/[0.08] px-4 py-2.5 transition-all duration-300 sm:px-6 ${
+                className={`mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-full border border-white/[0.06] px-6 py-2.5 transition-all duration-300 sm:px-8 ${
                     scrolled
-                        ? "bg-[#050711]/90 backdrop-blur"
-                        : "bg-[#050711]/80 backdrop-blur"
+                        ? "bg-[#070710]/95 backdrop-blur"
+                        : "bg-[#070710]/90 backdrop-blur"
                 }`}
             >
                 <a href="#about" onClick={closeMobileMenu} className="flex items-center gap-2.5">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-md border border-violet-400/30 bg-violet-400/[0.08]">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-violet-400/40 bg-violet-400/[0.12]">
                         <Code2 size={16} className="text-violet-300" />
                     </span>
                     <span className="text-sm font-medium tracking-tight text-white">
@@ -109,9 +109,10 @@ export default function Navbar() {
                     </a>
                     <a
                         href="#contact"
-                        className="ml-2 inline-flex items-center gap-2 rounded-md bg-violet-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-violet-500"
+                        className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-violet-500 px-5 py-2 text-sm font-medium text-white transition-all hover:shadow-[0_0_40px_-15px_rgba(139,92,246,0.9)]"
                     >
                         Hire Me
+                        <ArrowUpRight size={16} />
                     </a>
                 </div>
 

@@ -29,7 +29,7 @@ export default function Projects() {
                                 delay: shouldReduceMotion ? 0 : index * 0.05,
                                 ease: "easeOut"
                             }}
-                            className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f] transition-colors hover:border-violet-400/40"
+                            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#10121f] transition-colors hover:border-violet-400/40"
                         >
                             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                             <div className="flex items-start justify-between gap-4 p-6 sm:p-7">

@@ -67,7 +67,7 @@ export default function Hero() {
                     transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: "easeOut" }}
                     className="relative z-10"
                 >
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-violet-400/25 bg-violet-400/[0.07] px-3 py-1.5">
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-400/[0.08] px-3 py-1.5">
                         <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
                             B.TECH CSE STUDENT
@@ -89,14 +89,14 @@ export default function Hero() {
                     <div className="mt-8 flex flex-wrap items-center gap-3">
                         <a
                             href="#projects"
-                            className="group inline-flex items-center gap-2 rounded-md bg-violet-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-500"
+                            className="group inline-flex items-center gap-2 rounded-full bg-violet-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-500"
                         >
                             View My Work
                             <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         </a>
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 rounded-md border border-white/[0.14] px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-violet-400/60 hover:bg-white/[0.02]"
+                            className="inline-flex items-center gap-2 rounded-full border border-white/[0.16] px-6 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-violet-400/60 hover:bg-white/[0.02]"
                         >
                             <Mail size={16} />
                             Contact Me
