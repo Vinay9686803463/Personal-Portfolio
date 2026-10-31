@@ -203,10 +203,10 @@ export default function Hero() {
                     </div>
 
                     <div className="relative">
-                        <div className="absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/30 blur-[90px] sm:h-[250px] sm:w-[250px] lg:h-[270px] lg:w-[270px]" />
-                        <div className="absolute left-1/2 top-1/2 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d4ce3] sm:h-[230px] sm:w-[230px] lg:h-[250px] lg:w-[250px]" />
+                        <div className="absolute left-1/2 top-1/2 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/30 blur-[90px] sm:h-[240px] sm:w-[240px] lg:h-[280px] lg:w-[280px]" />
+                        <div className="absolute left-1/2 top-1/2 h-[180px] w-[180px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6d4ce3] sm:h-[220px] sm:w-[220px] lg:h-[260px] lg:w-[260px]" />
 
-                        <div className="relative h-[180px] w-[180px] sm:h-[210px] sm:w-[210px] lg:h-[230px] lg:w-[230px]">
+                        <div className="relative aspect-square h-[180px] w-[180px] shrink-0 overflow-hidden rounded-full sm:h-[220px] sm:w-[220px] lg:h-[260px] lg:w-[260px]">
                             <div
                                 className="relative h-full w-full overflow-hidden rounded-full"
                                 onMouseEnter={() => setMenuOpen(true)}
