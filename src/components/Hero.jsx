@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Code2, Github, Linkedin, Mail, Camera, Upload, Trash2, Eye, X } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
@@ -49,6 +49,24 @@ export default function Hero() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [isPhotoPreviewOpen, setIsPhotoPreviewOpen] = useState(false);
+
+    useEffect(() => {
+        if (!isPhotoPreviewOpen) {
+            return;
+        }
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsPhotoPreviewOpen(false);
+            }
+        };
+
+        globalThis.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            globalThis.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isPhotoPreviewOpen]);
 
     const handleFileSelect = (event) => {
         const file = event.target.files?.[0];
