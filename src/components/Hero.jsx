@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Code2, Github, Linkedin, Mail, Camera, Upload, Trash2 } from "lucide-react";
+import { ArrowUpRight, Code2, Github, Linkedin, Mail, Camera, Upload, Trash2, Eye, X } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 import {
     SiHtml5,
@@ -44,8 +44,11 @@ const technologies = [
 export default function Hero() {
     const shouldReduceMotion = useReducedMotion();
     const fileInputRef = useRef(null);
-    const [profileImage, setProfileImage] = useState(null);
+    const defaultProfileImage = "https://i.pinimg.com/1200x/2e/ad/1f/2ead1f34f29ed44d5a50f87792422c5d.jpg";
+    const [profileImage, setProfileImage] = useState(defaultProfileImage);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+    const [isPhotoPreviewOpen, setIsPhotoPreviewOpen] = useState(false);
 
     const handleFileSelect = (event) => {
         const file = event.target.files?.[0];
@@ -66,7 +69,7 @@ export default function Hero() {
     };
 
     const handleRemovePhoto = () => {
-        setProfileImage(null);
+        setProfileImage(defaultProfileImage);
         setMenuOpen(false);
         if (fileInputRef.current) {
             fileInputRef.current.value = "";
@@ -209,13 +212,25 @@ export default function Hero() {
                         <div className="relative aspect-square h-[180px] w-[180px] shrink-0 overflow-hidden rounded-full sm:h-[220px] sm:w-[220px] lg:h-[260px] lg:w-[260px]">
                             <div
                                 className="relative h-full w-full overflow-hidden rounded-full"
-                                onMouseEnter={() => setMenuOpen(true)}
-                                onMouseLeave={() => setMenuOpen(false)}
+                                onMouseEnter={() => {
+                                    setIsHovering(true);
+                                    setMenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                    setIsHovering(false);
+                                    setMenuOpen(false);
+                                }}
                             >
                                 <button
                                     type="button"
                                     className="relative h-full w-full overflow-hidden rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
-                                    onClick={() => setMenuOpen((prev) => !prev)}
+                                    onClick={() => {
+                                        if (isHovering) {
+                                            setMenuOpen(true);
+                                        } else {
+                                            setMenuOpen((prev) => !prev);
+                                        }
+                                    }}
                                     aria-haspopup="menu"
                                     aria-expanded={menuOpen}
                                     aria-label="Profile photo options"
@@ -243,6 +258,19 @@ export default function Hero() {
                                         aria-label="Photo options"
                                         className="absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-full bg-black/70 p-2 text-center"
                                     >
+                                        <button
+                                            type="button"
+                                            role="menuitem"
+                                            onClick={() => {
+                                                setIsPhotoPreviewOpen(true);
+                                                setMenuOpen(false);
+                                                setIsHovering(false);
+                                            }}
+                                            className="flex w-full items-center justify-center gap-1.5 rounded-full px-2 py-1 text-[10px] text-white hover:bg-white/10"
+                                        >
+                                            <Eye size={12} />
+                                            View Photo
+                                        </button>
                                         <button
                                             type="button"
                                             role="menuitem"
@@ -323,6 +351,29 @@ export default function Hero() {
                     </div>
                 </motion.div>
             </div>
+
+            {isPhotoPreviewOpen && (
+                <div
+                    className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4"
+                    onClick={() => setIsPhotoPreviewOpen(false)}
+                >
+                    <div className="relative" onClick={(event) => event.stopPropagation()}>
+                        <button
+                            type="button"
+                            onClick={() => setIsPhotoPreviewOpen(false)}
+                            aria-label="Close photo preview"
+                            className="absolute -top-10 right-0 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-colors hover:bg-white/20"
+                        >
+                            <X size={18} />
+                        </button>
+                        <img
+                            src={profileImage}
+                            alt="Profile photo preview"
+                            className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

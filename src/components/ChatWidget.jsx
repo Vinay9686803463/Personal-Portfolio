@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Bot, X, Send } from "lucide-react";
 import { personalInfo, chatbotPresets, queryChatbotResponse } from "../data/portfolioData";
@@ -7,7 +7,7 @@ export default function ChatWidget({ isOpen: controlledIsOpen, onOpen, onClose, 
     const shouldReduceMotion = useReducedMotion();
     const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
     const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : uncontrolledIsOpen;
-    const setIsOpen = (value) => {
+    const setIsOpen = useCallback((value) => {
         if (controlledIsOpen !== undefined) {
             if (typeof value === "function") {
                 const nextValue = value(isOpen);
@@ -23,7 +23,7 @@ export default function ChatWidget({ isOpen: controlledIsOpen, onOpen, onClose, 
             return;
         }
         setUncontrolledIsOpen(value);
-    };
+    }, [controlledIsOpen, isOpen, onOpen, onClose, onToggle]);
     const [input, setInput] = useState("");
 
     const [messages, setMessages] = useState([
@@ -37,7 +37,7 @@ export default function ChatWidget({ isOpen: controlledIsOpen, onOpen, onClose, 
         const handleOpenChat = () => setIsOpen(true);
         globalThis.addEventListener("open-portfolio-chat", handleOpenChat);
         return () => globalThis.removeEventListener("open-portfolio-chat", handleOpenChat);
-    }, []);
+    }, [setIsOpen]);
 
     const sendMessage = (text = input) => {
         const query = text.trim();
