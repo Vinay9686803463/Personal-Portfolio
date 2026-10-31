@@ -222,14 +222,14 @@ export default function Hero() {
                                 >
                                     <div
                                         id="hero-portrait-layer"
-                                        className="absolute inset-0 h-full w-full rounded-full"
+                                        className="absolute inset-0 h-full w-full rounded-full overflow-hidden"
                                         aria-label="Profile photo"
                                     >
                                         {profileImage ? (
                                             <img
                                                 src={profileImage}
                                                 alt="Vinay Sollapure"
-                                                className="h-full w-full rounded-full object-cover"
+                                                className="h-full w-full rounded-full object-cover object-center"
                                             />
                                         ) : (
                                             <div className="flex h-full w-full items-center justify-center rounded-full" />
