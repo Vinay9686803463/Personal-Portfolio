@@ -121,20 +121,18 @@ export default function Hero() {
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-400/[0.08] px-3 py-1.5">
                         <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
-                            B.TECH CSE STUDENT
+                            FULL-STACK DEVELOPER | B.TECH CSE STUDENT
                         </span>
                     </div>
 
                     <h1 className="text-2xl font-bold leading-tight tracking-tight whitespace-nowrap sm:text-3xl lg:text-4xl">
                         <span>Hi, I'm</span>{" "}
-                        <span className="text-violet-400">Vinay</span>{" "}
-                        <span className="text-white">I build things for the web.</span>
+                        <span className="text-violet-400">Vinay.</span>{" "}
+                        <span className="text-white">I build full-stack web applications.</span>
                     </h1>
 
                     <p className="mt-6 max-w-lg text-sm leading-7 text-slate-400 sm:text-base">
-                        I'm a Computer Science student interested in building practical web applications,
-                        developing backend functionality, and working with databases to solve real-world
-                        problems.
+                        I'm a Computer Science student passionate about full-stack development. I build responsive user interfaces, develop backend applications using Python and Flask, and integrate databases to turn ideas into functional web solutions.
                     </p>
 
                     <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -142,7 +140,7 @@ export default function Hero() {
                             href="#projects"
                             className="group inline-flex items-center gap-2 rounded-full bg-violet-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-500"
                         >
-                            View My Work
+                            View My Projects
                             <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         </a>
                         <a
@@ -153,6 +151,10 @@ export default function Hero() {
                             Contact Me
                         </a>
                     </div>
+
+                    <p className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
+                        HTML · CSS · JavaScript · Python · Flask · SQL
+                    </p>
 
                     <div className="mt-7 flex items-center gap-3">
                         <span className="text-xs text-slate-500">Find me on</span>

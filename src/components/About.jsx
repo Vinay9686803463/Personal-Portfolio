@@ -27,31 +27,34 @@ export default function About() {
                         ABOUT ME
                     </p>
                     <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">
-                        Get to Know Me
+                        Building Practical Solutions Through Code
                     </h2>
 
                     <div className="mt-5 space-y-4 text-sm leading-7 text-slate-400 sm:text-base">
                         <p>
-                            I'm a third-year B.Tech student in Computer Science and Engineering at Aditya College of Engineering and Technology, Bengaluru. I'm interested in web development, backend systems, and building practical software projects.
+                            I'm Vinay Sollapure, a third-year B.Tech Computer Science and Engineering student at Aditya College of Engineering and Technology, Bengaluru.
                         </p>
                         <p>
-                            I enjoy exploring new technologies, strengthening my programming and problem-solving skills, and turning ideas into functional applications. My goal is to continue growing as a developer while gaining hands-on experience through meaningful projects and collaboration.
+                            I'm interested in full-stack development, building responsive web applications, developing backend functionality and working with databases.
+                        </p>
+                        <p>
+                            I enjoy exploring new technologies, improving my programming and problem-solving skills, and turning ideas into functional applications. My goal is to grow as a developer through meaningful projects and practical experience.
                         </p>
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-3">
-                        {highlights.map((item) => {
-                            const Icon = item.icon;
-                            return (
-                                <div
-                                    key={item.text}
-                                    className="inline-flex items-center gap-2 rounded-md border border-white/[0.08] bg-white/[0.01] px-3 py-1.5 text-sm text-slate-300"
-                                >
-                                    <Icon size={16} className="text-violet-300" />
-                                    <span>{item.text}</span>
-                                </div>
-                            );
-                        })}
+                    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                        {[
+                            "Full-Stack Development",
+                            "Backend & Database Development",
+                            "Continuous Learning"
+                        ].map((item) => (
+                            <div
+                                key={item}
+                                className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 text-sm text-slate-300"
+                            >
+                                {item}
+                            </div>
+                        ))}
                     </div>
                 </motion.div>
             </div>
