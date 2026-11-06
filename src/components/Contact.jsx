@@ -1,9 +1,7 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUp, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 
 export default function Contact() {
-    const shouldReduceMotion = useReducedMotion();
     const year = new Date().getFullYear();
 
     const scrollToTop = () => {
@@ -96,5 +94,3 @@ export default function Contact() {
         </section>
     );
 }
-EOF
-echo done

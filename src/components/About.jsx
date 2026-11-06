@@ -1,11 +1,4 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { BookOpen, Code2, Sparkles } from "lucide-react";
-
-const highlights = [
-    { icon: BookOpen, text: "Computer Science Student" },
-    { icon: Code2, text: "Web Development Enthusiast" },
-    { icon: Sparkles, text: "Always Learning" }
-];
 
 export default function About() {
     const shouldReduceMotion = useReducedMotion();
