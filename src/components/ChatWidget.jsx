@@ -86,7 +86,7 @@ export default function ChatWidget({ isOpen: controlledIsOpen, onOpen, onClose, 
                         transition={{ duration: shouldReduceMotion ? 0.15 : 0.2 }}
                         role="dialog"
                         aria-label="Portfolio Assistant"
-                        className="fixed bottom-20 right-4 z-50 flex max-h-[70vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-xl border border-white/[0.1] bg-[#10121f] sm:right-5 sm:w-96"
+                        className="fixed bottom-20 right-4 z-50 flex max-h-[70vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-xl border border-white/[0.1] bg-[#171924] sm:right-5 sm:w-96"
                     >
                         <div className="flex items-center gap-3 border-b border-white/[0.08] px-4 py-3">
                             <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-violet-400/30 bg-violet-400/[0.08]">

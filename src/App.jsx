@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import EngineeringOverview from "./components/EngineeringOverview";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
@@ -17,11 +18,12 @@ export default function App() {
     const toggleChat = () => setIsChatOpen((prev) => !prev);
 
     return (
-        <div className="min-h-screen bg-[#050711] text-[#F4F5FA] font-sans antialiased">
+        <div className="min-h-screen bg-[#0D1018] text-[#F4F5FA] font-sans antialiased">
             <Navbar onOpenChat={openChat} />
 
             <main>
                 <Hero />
+                <EngineeringOverview />
                 <About />
                 <Skills />
                 <Projects />

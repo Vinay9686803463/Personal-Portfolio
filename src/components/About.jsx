@@ -13,7 +13,7 @@ export default function About() {
     return (
         <section
             id="about-details"
-            className="relative scroll-mt-28 border-b border-white/[0.07] bg-[#050711] py-16 sm:py-20"
+            className="relative scroll-mt-28 border-b border-white/[0.07] bg-[#0D1018] py-16 sm:py-20"
         >
             <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
                 <motion.div

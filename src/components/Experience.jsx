@@ -9,7 +9,7 @@ export default function Experience() {
     return (
         <section
             id="education"
-            className="relative scroll-mt-28 border-b border-white/[0.07] bg-[#050711] py-16 sm:py-20"
+            className="relative scroll-mt-28 border-b border-white/[0.07] bg-[#0D1018] py-16 sm:py-20"
         >
             <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
 
@@ -53,7 +53,7 @@ export default function Experience() {
                                     delay: shouldReduceMotion ? 0 : index * 0.1,
                                     ease: "easeOut",
                                 }}
-                                className="group relative h-full w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#10121f] transition-colors hover:border-violet-400/60"
+                                className="group relative h-full w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#171924] transition-colors hover:border-violet-400/60"
                             >
                                 {/* Top Violet Gradient */}
                                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />

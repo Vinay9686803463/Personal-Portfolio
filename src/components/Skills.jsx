@@ -5,7 +5,7 @@ export default function Skills() {
     const shouldReduceMotion = useReducedMotion();
 
     return (
-        <section id="skills" className="relative border-b border-white/[0.07] bg-[#050711] py-16 sm:py-20">
+        <section id="skills" className="relative border-b border-white/[0.07] bg-[#0D1018] py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-12">
                 <div className="mb-10">
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
@@ -24,7 +24,7 @@ export default function Skills() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: shouldReduceMotion ? 0 : 0.4, delay: shouldReduceMotion ? 0 : index * 0.05 }}
-                            className="rounded-2xl border border-white/[0.08] bg-[#10121f] p-6"
+                            className="rounded-2xl border border-white/[0.08] bg-[#171924] p-6"
                         >
                             <h3 className="text-lg font-semibold text-white">{category.title}</h3>
                             <p className="mt-2 text-sm text-slate-400">{category.description}</p>

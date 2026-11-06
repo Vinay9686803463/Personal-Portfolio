@@ -65,8 +65,8 @@ useEffect(() => {
             <div
                 className={`mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-full border border-white/[0.06] px-6 py-2.5 transition-all duration-300 sm:px-8 ${
                     scrolled
-                        ? "bg-[#070710]/95 backdrop-blur"
-                        : "bg-[#070710]/90 backdrop-blur"
+                        ? "bg-[#0D1018]/95 backdrop-blur"
+                        : "bg-[#0D1018]/90 backdrop-blur"
                 }`}
             >
                 <a href="#about" onClick={closeMobileMenu} className="flex items-center gap-2.5">
@@ -157,7 +157,7 @@ useEffect(() => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="mx-auto mt-2 max-w-7xl rounded-lg border border-white/[0.08] bg-[#050711]/95 px-4 py-4 backdrop-blur md:hidden"
+                        className="mx-auto mt-2 max-w-7xl rounded-lg border border-white/[0.08] bg-[#0D1018]/95 px-4 py-4 backdrop-blur md:hidden"
                     >
                         <nav className="flex flex-col">
                             {navItems.map((item) => (

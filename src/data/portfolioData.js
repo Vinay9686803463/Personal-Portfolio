@@ -1,9 +1,11 @@
 
 export const personalInfo = {
     name: "Vinay Sollapure",
-    title: "B.Tech CSE Student & Web Developer",
+    title: "Full-Stack Developer",
+subtitle: "B.Tech Computer Science & Engineering Student",
     location: "Bengaluru, Karnataka",
     email: "vinayssollapure@gmail.com",
+    phone: "9686803463",
 
     skills: [
         "HTML",
@@ -76,7 +78,7 @@ export const education = [
         degree: "PUC in Science (PCMB)",
         institution: "CLE PU College Chikkodi",
         location: "Chikkodi, Karnataka",
-        university: "Karnata State Board",
+        university: "Karnataka State Board",
         status: "Completed",
         details:
             "I have completed my Pre-University Course (PUC) in Science in 2024, with a focus on Physics, Chemistry, Mathematics, and Biology (PCMB). This laid the foundation for my interest in technology and problem-solving."

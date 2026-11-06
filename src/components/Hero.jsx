@@ -97,7 +97,7 @@ export default function Hero() {
     return (
         <section
             id="about"
-            className="relative overflow-hidden border-b border-white/[0.07] bg-[#050711]"
+            className="relative overflow-hidden border-b border-white/[0.07] bg-[#0D1018]"
         >
             <div className="pointer-events-none absolute inset-0">
                 <div className="absolute -left-40 top-10 h-80 w-80 rounded-full bg-violet-600/[0.09] blur-[120px]" />
@@ -331,7 +331,7 @@ export default function Hero() {
                         </div>
 
                         <div className="absolute -bottom-6 -right-4 sm:-bottom-4 sm:-right-6 lg:-right-10">
-                            <div className="rounded-lg border border-white/10 bg-[#10121f] px-4 py-3 shadow-[0_30px_60px_-40px_rgba(121,87,246,1)]">
+                            <div className="rounded-lg border border-white/10 bg-[#171924] px-4 py-3 shadow-[0_30px_60px_-40px_rgba(121,87,246,1)]">
                                 <div className="mb-2 flex items-center gap-2">
                                     <Code2 size={16} className="text-violet-300" />
                                     <span className="text-xs font-medium text-white">Code</span>
